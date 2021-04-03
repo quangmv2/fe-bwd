@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -18,7 +18,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+        "@": ["src"],
+        "@assets": ["src/assets"],
+        "@common": ["src/common"],
+        "@components": ["src/components"],
+        "@constants": ["src/constants"],
+        "@pages": ["src/pages"],
+        "@routers": ["src/routers"],
+        "@store": ["src/store"],
+        "@tools": ["src/tools"],
+        "@utils": ["src/util"]
+    }
   },
   "include": [
     "src"

@@ -1,0 +1,35 @@
+.container {
+    padding: 40px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.linkPages {
+    display: flex;
+    margin-right: 20px;
+
+    a {
+        padding: 0px 10px;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    // a:hover {
+
+    // }
+
+    .btn {
+        padding: 5px 20px;
+        font-size: 20px;
+        border: 1px solid white;
+        color: white;
+    }
+
+    // flex-direction: column;
+}
+
