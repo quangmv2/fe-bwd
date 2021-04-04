@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import { routersNotAuth } from "@routers";
 // import AppAuth from './appAuth';
 import { LayoutNotAuth } from 'src/components/layout';
+import NotFoundPage from '../404';
 
 const Components = {}
 
@@ -32,7 +33,7 @@ const App: React.FC<AppProps> = (props) => {
                     />
                 ))
             }
-            <Route render={() => <>404</>} />
+            <Route path="*" render={() => <NotFoundPage />} />
         </React.Fragment>
     );
 }

@@ -16,11 +16,17 @@ const routersNotAuth = [
         component: 'register',
         noHeader: true
     },
-    {
-        exact: true,
-        path: '/',
-        component: 'landing-page'
-    },
+    // {
+    //     exact: true,
+    //     path: '/',
+    //     component: 'landing-page'
+    // },
+    // {
+    //     exact: true,
+    //     path: "*",
+    //     component: '404',
+    //     noHeader: true
+    // },
 ]
 const routersAuth = [
     {

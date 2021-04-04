@@ -3,7 +3,6 @@ import styles from "./styles.module.scss";
 import logo from "@assets/icons/logo.png";
 import { Link } from "react-router-dom";
 import { useHeader } from '@utils';
-
 interface HeaderComponentProps {
     visible?: boolean
 }
@@ -37,7 +36,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
     ]
 
     return (
-        <div className={styles.container} style={ !visibleHook || !visible ? { display: 'none' } : { } }>
+        <div className={styles.container} style={!visibleHook || !visible ? { display: 'none' } : {}}>
             <Link to="/">
                 <img src={logo} alt="logo-hopez" />
             </Link>

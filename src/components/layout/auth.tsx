@@ -3,7 +3,7 @@ import { Layout, Menu, Button, Badge, Avatar } from 'antd';
 import { UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { menuRouters } from '@routers';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
-import LoadingLazyComponent from '../loading-page';
+import { LoadingLazyComponent } from '../loading-page';
 import logo from "@assets/icons/logo.png";
 import { useAuth } from '@store';
 import { ACCESS_TOKEN } from '@constants';
