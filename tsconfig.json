@@ -30,7 +30,7 @@
         "@routers": ["src/routers"],
         "@store": ["src/store"],
         "@tools": ["src/tools"],
-        "@utils": ["src/util"]
+        "@utils": ["src/utils"]
     }
   },
   "include": [

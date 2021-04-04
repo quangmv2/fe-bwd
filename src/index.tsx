@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'antd/dist/antd.min.css'
-import { App } from '@pages';
+import { AppRouters } from '@pages';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppRouters />
   </React.StrictMode>,
   document.getElementById('root')
 );

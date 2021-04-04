@@ -1,5 +1,5 @@
-import App from "./app";
+import AppRouters from "./app";
 
 export {
-    App
+    AppRouters
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import indexStyles from "./index.module.scss";
-import { ButtonComponent, HeaderComponent } from '@components';
+import { ButtonComponent } from '@components';
 import { Rate } from "antd";
 
 interface LandingProps {
@@ -10,7 +10,6 @@ interface LandingProps {
 const Landing: React.FC<LandingProps> = () => {
     return (
         <div className={indexStyles.container}>
-            <HeaderComponent />
             <h1>Landing Page</h1>
             <div>
                 <ButtonComponent>

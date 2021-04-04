@@ -1,5 +1,7 @@
+import { AuthContextProvider } from '@store';
 import React from 'react';
-import Landing from "../landing-page";
+import { HeaderProvider } from 'src/utils';
+import AppRouters from './app';
 
 interface AppProps {
 
@@ -7,7 +9,11 @@ interface AppProps {
 
 const App: React.FC<AppProps> = () => {
   return (
-    <Landing />
+    <AuthContextProvider>
+      <HeaderProvider>
+        <AppRouters />
+      </HeaderProvider>
+    </AuthContextProvider>
   );
 }
 

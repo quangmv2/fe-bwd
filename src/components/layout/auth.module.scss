@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+}
+
+// .ant-menu-item .ant-menu-item-only-child {
+//     padding-left: 0 !important;
+// }
+
+.userContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    height: 50px;
+}
+
+.userAvatar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    p {
+        color: white;
+        margin: 0;
+        margin-left: 5px;
+    }
+
+}
