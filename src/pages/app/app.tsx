@@ -58,7 +58,7 @@ const AppRouters: React.FC<AppProps> = (props) => {
         loging ? <LoadingLazyComponent /> :
           <Router
             basename={
-              process.env.SERVICE ? process.env.SERVICE : "/"
+              process.env.APP_NAME ? process.env.APP_NAME : "/"
             }
           >
             <Switch>
@@ -71,13 +71,6 @@ const AppRouters: React.FC<AppProps> = (props) => {
                   return <Redirect to="/login" />
                 }}
               />
-              {/* <Route path="/" exact={true} render={() => <Suspense fallback="Loading" >
-                <LayoutNotAuth>
-                  <Home />
-                </LayoutNotAuth>
-              </Suspense>} /> */}
-              {/* <AppNoAuth {...props} /> */}
-
               {
                 routersNotAuth.map((route, index) => (
                   <Route
