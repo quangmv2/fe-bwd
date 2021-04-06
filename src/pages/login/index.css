@@ -1,0 +1,32 @@
+.ant-form-item-control {
+    width: 100%;
+    max-width: 100%;
+}
+
+.ant-col-offset-8 {
+    margin-left: 0;
+}
+
+.ant-form .ant-form-item{
+    height: 70px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.ant-form .ant-form-item-control-input {
+    height: 100%;
+}
+
+.ant-form .ant-form-item-control-input-content {
+    height: 100%;
+}
+
+.ant-form .ant-form-item-control-input-content input {
+    height: 100%;
+}
+
+.ant-form .ant-form-item-control-input-content span {
+    height: 100%;
+    border-radius: 10px;
+
+}

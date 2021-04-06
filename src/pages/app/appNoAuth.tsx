@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 // import Landing from "../landing-page";
 import { Route } from 'react-router-dom'
 import { routersNotAuth } from "@routers";
@@ -17,7 +17,7 @@ interface AppProps {
 
 const App: React.FC<AppProps> = (props) => {
     return (
-        <React.Fragment>
+        <>
             {
                 routersNotAuth.map((route, index) => (
                     <Route
@@ -33,8 +33,12 @@ const App: React.FC<AppProps> = (props) => {
                     />
                 ))
             }
-            <Route path="*" render={() => <NotFoundPage />} />
-        </React.Fragment>
+            {/* <Route path="*" render={() =>
+                <Suspense fallback="Loading" >
+                  <NotFoundPage />
+                </Suspense>} 
+              /> */}
+        </>
     );
 }
 

@@ -3,11 +3,12 @@ import { Layout, Menu, Button, Badge, Avatar } from 'antd';
 import { UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { menuRouters } from '@routers';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
-import { LoadingLazyComponent } from '../loading-page';
 import logo from "@assets/icons/logo.png";
 import { useAuth } from '@store';
-import { ACCESS_TOKEN } from '@constants';
+import { ACCESS_TOKEN, TAB_ADMIN_MODE } from '@constants';
 import styles from "./auth.module.scss";
+import { uniq, inRange, indexOf, isNull } from "lodash";
+import { LoadingLazyComponent } from '../loading-page';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -34,11 +35,12 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
 
     const [toggleCollapsed, setToggleCollapsed] = useState<boolean>(false);
     const { path } = useRouteMatch();
-    const { setIsAuth, setUser } = useAuth();
+    const { setIsAuth, setUser, user } = useAuth();
     const history = useHistory();
 
     useEffect(() => {
-        document.title = "ADMIN"
+        document.title = "ADMIN";
+        if (!localStorage.getItem(TAB_ADMIN_MODE)) setToggleCollapsed(true);
     }, [])
 
     const logout = useCallback(() => {
@@ -47,6 +49,14 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
         setUser(null);
         history.replace("/");
     }, [history, setIsAuth, setUser])
+
+    const toggle = () => {
+        setToggleCollapsed(c => {
+            if (c) localStorage.removeItem(TAB_ADMIN_MODE);
+            else localStorage.setItem(TAB_ADMIN_MODE, JSON.stringify(!toggleCollapsed));
+            return !c;
+        })
+    }
 
     return (
         <Layout style={{ maxHeight: "100vh" }}>
@@ -62,8 +72,8 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
                     width={250} style={{ height: "calc(100vh - 64px)", maxHeight: "calc(100vh - 64px)" }}
                     className="site-layout-background"
                     collapsed={toggleCollapsed}>
-                    <div className={styles.userContainer} style={!toggleCollapsed ? { } : { justifyContent: 'center' }}>
-                        <div className={styles.userAvatar} style={!toggleCollapsed ? { } : { display: 'none' }}>
+                    <div className={styles.userContainer} style={!toggleCollapsed ? {} : { justifyContent: 'center' }}>
+                        <div className={styles.userAvatar} style={!toggleCollapsed ? {} : { display: 'none' }}>
                             <span>
                                 <Badge dot>
                                     <Avatar shape="square" icon={<UserOutlined />} />
@@ -71,7 +81,7 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
                             </span>
                             <p>ADMIN</p>
                         </div>
-                        <Button type="primary" onClick={() => setToggleCollapsed(c => !c)}>
+                        <Button type="primary" onClick={toggle}>
                             {React.createElement(toggleCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
                         </Button>
                     </div>
@@ -83,19 +93,26 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
                     >
                         {
                             menuRouters.map(mR => {
+
+                                if (mR.permissions.length > 0 && (!user || !inRange(uniq([...user.permissions, ...mR.permissions]).length,
+                                    user.permissions.length,
+                                    user.permissions.length + mR.permissions.length))) return;
                                 if (mR["childs"] && mR.childs.length > 0) return (
                                     <SubMenu title={mR.title} key={`submenu ${mR.dest}`}>
                                         {
-                                            mR.childs.map(chi => (
-                                                <Menu.Item key={`menu ${chi.dest}`}>
-                                                    <Link to={chi.dest}>{chi.title}</Link>
-                                                </Menu.Item>
-                                            ))
+                                            mR.childs.map(chi => {
+                                                if (!user || indexOf(user.permissions, chi.permission) == -1) return;
+                                                return (
+                                                    <Menu.Item key={`menu ${chi.dest}`}>
+                                                        <Link to={chi.dest}>{chi.title}</Link>
+                                                    </Menu.Item>
+                                                )
+                                            })
                                         }
                                     </SubMenu>
                                 )
                                 return (
-                                    <Menu.Item key={`menu ${mR.dest}`} title={mR.title}>
+                                    <Menu.Item key={`menu ${mR.dest}`} title={<Link to={mR.dest}>{mR.title}</Link>} >
                                         <Link to={mR.dest}>{mR.title}</Link>
                                     </Menu.Item>
                                 )

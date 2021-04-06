@@ -13,7 +13,7 @@ const LayoutNotAuth: React.FC<LayoutNotAuthProps> = ({
 }) => {
 
     useEffect(() => {
-        document.title = "Landing page";
+        // document.title = "Landing page";
     }, [])
 
     return (

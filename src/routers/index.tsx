@@ -1,4 +1,13 @@
-const routersNotAuth = [
+import { appPermisions, AppPermission } from "@constants"
+
+const routersNotAuth: {
+    exact: boolean,
+    path: string,
+    component: string,
+    noHeader?: boolean,
+    option?: any,
+    permission?: AppPermission 
+}[] = [
     {
         exact: true,
         path: '/landing-page',
@@ -16,19 +25,26 @@ const routersNotAuth = [
         component: 'register',
         noHeader: true
     },
-    // {
-    //     exact: true,
-    //     path: '/',
-    //     component: 'landing-page'
-    // },
-    // {
-    //     exact: true,
-    //     path: "*",
-    //     component: '404',
-    //     noHeader: true
-    // },
+    {
+        exact: true,
+        path: '/',
+        component: 'landing-page'
+    },
+    {
+        exact: true,
+        path: "*",
+        component: '404',
+        noHeader: true
+    },
 ]
-const routersAuth = [
+const routersAuth: {
+    exact: boolean,
+    path: string,
+    component: string,
+    noHeader?: boolean,
+    option?: any,
+    permission?: AppPermission 
+}[] = [
     {
         exact: true,
         path: '/',
@@ -71,85 +87,97 @@ const routersAuth = [
     },
 ]
 
-const menuRouters = [
-    {
-        title: "Dashboard",
-        type: "link",
-        dest: "/admin/",
-        code: "DASHBOARD"
-    },
-    {
-        title: 'Tài khoản',
-        type: "navigation",
-        dest: "/admin/users",
-        code: "USERS",
-        childs: [
-            {
-                title: 'Danh sách tài khoản',
-                type: "sub_navigation",
-                dest: "/admin/users",
-                icon: "",
-                code: "LIST_USER",
-            },
-            {
-                title: 'Thêm tài khoản',
-                type: "sub_navigation",
-                dest: "/admin/users/create",
-                icon: "",
-                code: "CREATE_USER",
-            },
-            {
-                title: 'Sửa tài khoản',
-                type: "sub_navigation",
-                dest: "/admin/users/edit",
-                icon: "",
-                code: "EDIT_USER",
-            }
-        ]
-    },
-    {
-        title: 'Phòng họp',
-        type: "navigation",
-        dest: "/admin/conferences",
-        code: "CONFERENCE",
-        childs: [
-            {
-                title: 'Phòng họp đang hoạt động',
-                type: "sub_navigation",
-                dest: "/admin/conferences/active",
-                icon: "",
-                code: "ACTIVE_CONFERENCE",
-            },
-            {
-                title: 'Danh sách phòng họp',
-                type: "sub_navigation",
-                dest: "/admin/conferences",
-                icon: "",
-                code: "LIST_CONFERENCE",
-            },
-            {
-                title: 'Thêm phòng họp',
-                type: "sub_navigation",
-                dest: "/admin/conferences/create",
-                icon: "",
-                code: "CREATE_CONFERENCE",
-            },
-            {
-                title: 'Sửa phòng họp',
-                type: "sub_navigation",
-                dest: "/admin/conferences/edit",
-                icon: "",
-                code: "EDIT_CONFERENCE",
-            }
-        ]
-    },
-    // {
-    //     title: "Logout",
-    //     type: "link",
-    //     dest: "",
-    //     code: "LOGOUT"
-    // }
-]
+const menuRouters: {
+    title: string,
+    type: "link" | "navigation" | "button",
+    dest: string,
+    childs?: {
+        title: string,
+        type: string,
+        dest: string,
+        icon?: string,
+        permission?: AppPermission
+    }[],
+    permissions?: AppPermission[]
+}[] = [
+        {
+            title: "Dashboard",
+            type: "link",
+            dest: "/admin/",
+            permissions: []
+        },
+        {
+            title: 'Tài khoản',
+            type: "navigation",
+            dest: "/admin/users",
+            permissions: [appPermisions.USER_LIST, appPermisions.USER_CREATE, appPermisions.USER_EDIT],
+            childs: [
+                {
+                    title: 'Danh sách tài khoản',
+                    type: "sub_navigation",
+                    dest: "/admin/users",
+                    icon: "",
+                    permission: appPermisions.USER_LIST,
+                },
+                {
+                    title: 'Thêm tài khoản',
+                    type: "sub_navigation",
+                    dest: "/admin/users/create",
+                    icon: "",
+                    permission: appPermisions.USER_CREATE,
+                },
+                {
+                    title: 'Sửa tài khoản',
+                    type: "sub_navigation",
+                    dest: "/admin/users/edit",
+                    icon: "",
+                    permission: appPermisions.USER_EDIT,
+                }
+            ]
+        },
+        {
+            title: 'Phòng họp',
+            type: "navigation",
+            dest: "/admin/conferences",
+            permissions: ["ACTIVE_CONFERENCE", "LIST_CONFERENCE", "CREATE_CONFERENCE", "EDIT_CONFERENCE"],
+            childs: [
+                {
+                    title: 'Phòng họp đang hoạt động',
+                    type: "sub_navigation",
+                    dest: "/admin/conferences/active",
+                    icon: "",
+                    permission: "ACTIVE_CONFERENCE",
+                },
+                {
+                    title: 'Danh sách phòng họp',
+                    type: "sub_navigation",
+                    dest: "/admin/conferences",
+                    icon: "",
+                    permission: "LIST_CONFERENCE",
+                },
+                {
+                    title: 'Thêm phòng họp',
+                    type: "sub_navigation",
+                    dest: "/admin/conferences/create",
+                    icon: "",
+                    permission: "CREATE_CONFERENCE",
+                },
+                {
+                    title: 'Sửa phòng họp',
+                    type: "sub_navigation",
+                    dest: "/admin/conferences/edit",
+                    icon: "",
+                    permission: "EDIT_CONFERENCE",
+                }
+            ]
+        },
+        // {
+        //     title: "Logout",
+        //     type: "link",
+        //     dest: "",
+        //     permission: "LOGOUT"
+        // }
+    ]
 
 export {
     routersNotAuth,

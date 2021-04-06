@@ -1,0 +1,39 @@
+.bleepLoader {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    bottom: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border-radius: 50%;
+    background-color: #1e88e5;
+    -webkit-animation: bleepLoader 1s ease-in infinite ;
+    animation: bleepLoader 1s ease-in infinite 
+}
+
+@-webkit-keyframes bleepLoader {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0
+    }
+}
+
+@keyframes bleepLoader {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0
+    }
+}

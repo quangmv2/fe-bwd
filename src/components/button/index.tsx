@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, memo } from 'react';
 import styles from "./styles.module.scss";
 
 interface buttonProps {
@@ -8,11 +8,12 @@ interface buttonProps {
     className?: string
 }
 
-const button: React.FC<buttonProps> = ({
+const button: React.FC<buttonProps> = memo(({
     children,
     type,
     style,
-    className
+    className,
+    onPress
 }) => {
     return (
         // <div className={styles.container}>
@@ -20,6 +21,7 @@ const button: React.FC<buttonProps> = ({
                 className={`${styles.btn} ${className}`}
                 type={type}
                 style={style}
+                onClick={() => onPress&&onPress()}
             >
                 <label 
                     // className={styles.btn-label}
@@ -27,6 +29,6 @@ const button: React.FC<buttonProps> = ({
             </button>
         // </div>
     );
-}
+})
 
 export default button;

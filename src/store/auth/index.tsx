@@ -1,22 +1,24 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import { User } from "src/utils/type";
+import { uniq } from "lodash";
 
 export interface UserContextProps {
 
 }
-
 export interface AuthContextProps  {
     isAuth: boolean,
-    setIsAuth: Function
+    setIsAuth: (isAuth: boolean) => void
     user?: User,
-    setUser: Function
+    setUser: (user: User) => void,
+    setAuthencation: (isAuth: boolean, user?: User) => boolean;
 }
 
 export const AuthContext = createContext<AuthContextProps>({
     isAuth: false,
     setIsAuth: (isAuth: boolean) => {},
     user: null,
-    setUser: (user: User) => {}
+    setUser: (user: User) => {},
+    setAuthencation: (isAuth: boolean, user?: User): boolean => true
 });
 
 
@@ -27,12 +29,26 @@ export const AuthContextProvider = ({
     const [isAuth, setIsAuth] = useState<boolean>(false);
     const [user, setUser] = useState<User | null | undefined>(null);
 
+    const setAuthencation = useCallback((isAuth: boolean, user?: User) =>{
+        if (!isAuth) {
+            setIsAuth(false);
+            setUser(null);
+            return true;
+        }
+        if (isAuth && !user) return false;
+        setIsAuth(true);
+        user.permissions = uniq(user.permissions);
+        setUser(user);
+        return true;
+    }, [setIsAuth, setUser]);
+
     return (
         <AuthContext.Provider value={{
             isAuth,
             setIsAuth,
             user,
-            setUser
+            setUser,
+            setAuthencation
         }}>
             {children}
         </AuthContext.Provider>

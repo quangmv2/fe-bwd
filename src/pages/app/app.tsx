@@ -4,12 +4,13 @@ import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { routersNotAuth } from '@routers';
 import AppAuth from './appAuth';
 import { useAuth } from '@store';
-import { ACCESS_TOKEN } from '@constants';
+import { ACCESS_TOKEN, appPermisions } from '@constants';
 import { LoadingLazyComponent } from '@components';
 import { Snackbar } from '@material-ui/core'
-import { DisconnectOutlined } from '@ant-design/icons';
+import { DisconnectOutlined, WifiOutlined } from '@ant-design/icons';
 import { useOnlineStatus } from '@utils';
 import { LayoutNotAuth } from 'src/components/layout';
+import { indexOf } from "lodash";
 
 
 const NotFound = lazy(() => import("../404"));
@@ -26,7 +27,7 @@ interface AppProps {
 
 const AppRouters: React.FC<AppProps> = (props) => {
 
-  const { isAuth, setIsAuth } = useAuth()
+  const { isAuth, setAuthencation, user } = useAuth()
   const [loging, setLoging] = useState<boolean>(true);
   const internet = useOnlineStatus()
 
@@ -36,9 +37,20 @@ const AppRouters: React.FC<AppProps> = (props) => {
       setLoging(false);
       return
     };
-    setIsAuth(true);
+    setAuthencation(true, {
+      username: "vanquang312",
+      permissions: [
+        ...Object.values(appPermisions)
+      ],
+      fullname: "Mai Văn Quang",
+      email: "maiquang1470@gmail.com",
+      role: "ADMIN",
+    });
     setLoging(false);
   }, [])
+
+  console.log(user);
+
 
   return (
     <React.Fragment>
@@ -54,22 +66,33 @@ const AppRouters: React.FC<AppProps> = (props) => {
                 path="/admin"
                 key="/admin page"
                 render={routeProps => {
-                  if (isAuth)
+                  if (isAuth && user && indexOf(user.permissions, appPermisions.ADMIN_PAGE) != -1)
                     return <AppAuth {...props} {...routeProps} />
                   return <Redirect to="/login" />
                 }}
               />
-              <Route path="/" exact={true} render={() => <Suspense fallback="Loading" >
+              {/* <Route path="/" exact={true} render={() => <Suspense fallback="Loading" >
                 <LayoutNotAuth>
                   <Home />
                 </LayoutNotAuth>
-              </Suspense>} />
-              <AppNoAuth {...props} />
-              <Route render={() =>
-                <Suspense fallback="Loading" >
-                  <NotFound />
-                </Suspense>} 
-              />
+              </Suspense>} /> */}
+              {/* <AppNoAuth {...props} /> */}
+
+              {
+                routersNotAuth.map((route, index) => (
+                  <Route
+                    key={index}
+                    exact={route.exact}
+                    path={route.path}
+                    render={(routeProps) => {
+                      const Component = Components[route.component]
+                      return <LayoutNotAuth {...route}>
+                        <Component {...props} {...routeProps} route={route} />
+                      </LayoutNotAuth>
+                    }}
+                  />
+                ))
+              }
             </Switch>
           </Router>
       }
@@ -79,10 +102,11 @@ const AppRouters: React.FC<AppProps> = (props) => {
           horizontal: 'left'
         }}
         open={!internet.online}
+        autoHideDuration={2}
         message={
           <div>
             <DisconnectOutlined /> &nbsp; Mất kết nối internet.
-                </div>
+          </div>
         }
       />
     </React.Fragment>
