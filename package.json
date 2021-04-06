@@ -2,6 +2,11 @@
   "name": "react-codebase",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "maiquang1470@gmail.com",
+    "name": "Mai Văn Quang",
+    "url": "https://www.facebook.com/vanquang312"
+  },
   "dependencies": {
     "@ant-design/charts": "^1.1.1",
     "@ant-design/icons": "^4.6.2",
@@ -176,5 +181,17 @@
     "@types/lodash": "^4.14.168",
     "@types/material-ui": "^0.21.8",
     "@types/react-router-dom": "^5.1.7"
+  },
+  "license": "Codebase FrontEnd Create By Mai Van Quang@2021",
+  "keywords": [
+    "ReactJS",
+    "React",
+    "codebase",
+    "react-router-dom"
+  ],
+  "repository": {
+    "directory": "codebase",
+    "type": "Web",
+    "url": "https://github.com/quangmv2/fe-bwd"
   }
 }
