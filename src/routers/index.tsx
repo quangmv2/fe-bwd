@@ -1,13 +1,7 @@
-import { appPermisions, AppPermission } from "@constants"
+import { appPermisions } from "@constants"
+import { IMenuRouter, IRouter } from "@type"
 
-const routersNotAuth: {
-    exact: boolean,
-    path: string,
-    component: string,
-    noHeader?: boolean,
-    option?: any,
-    permission?: AppPermission 
-}[] = [
+const routersNotAuth: IRouter[] = [
     {
         exact: true,
         path: '/landing-page',
@@ -37,14 +31,7 @@ const routersNotAuth: {
         noHeader: true
     },
 ]
-const routersAuth: {
-    exact: boolean,
-    path: string,
-    component: string,
-    noHeader?: boolean,
-    option?: any,
-    permission?: AppPermission 
-}[] = [
+const routersAuth: IRouter[] = [
     {
         exact: true,
         path: '/',
@@ -87,19 +74,7 @@ const routersAuth: {
     },
 ]
 
-const menuRouters: {
-    title: string,
-    type: "link" | "navigation" | "button",
-    dest: string,
-    childs?: {
-        title: string,
-        type: string,
-        dest: string,
-        icon?: string,
-        permission?: AppPermission
-    }[],
-    permissions?: AppPermission[]
-}[] = [
+const menuRouters: IMenuRouter[] = [
         {
             title: "Dashboard",
             type: "link",

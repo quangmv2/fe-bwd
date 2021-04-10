@@ -22,10 +22,13 @@
     "baseUrl": "./",
     "paths": {
         "@": ["src"],
+        "@type": ["src/@types"],
         "@assets": ["src/assets"],
         "@common": ["src/common"],
         "@components": ["src/components"],
+        "@config": ["src/config"],
         "@constants": ["src/constants"],
+        "@context": ["src/context"],
         "@pages": ["src/pages"],
         "@routers": ["src/routers"],
         "@store": ["src/store"],

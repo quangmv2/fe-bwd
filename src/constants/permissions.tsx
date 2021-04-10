@@ -14,6 +14,4 @@ export const PERMS = {
     }
 }
 
-type AppPermissionKeys = keyof typeof PERMS.APP
-export type AppPermission = typeof PERMS.APP[AppPermissionKeys]
 export const appPermisions = PERMS.APP; 

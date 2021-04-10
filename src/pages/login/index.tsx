@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import styles from "./styles.module.scss";
 import "./index.css"
-import { Form, Input, Button } from 'antd';
-import { useAuth } from '@store';
-import { ACCESS_TOKEN, appPermisions } from '@constants';
+import { Form, Input } from 'antd';
+import { useAuth } from '@context';
+import { ACCESS_TOKEN, appPermisions, PREV_ROUTER } from '@constants';
 import { ButtonComponent } from '@components';
 
 const layout = {
@@ -21,30 +21,40 @@ interface LoginPageProps {
 
 const LoginPage: React.FC<LoginPageProps> = () => {
 
-  const { isAuth, setAuthencation } = useAuth();
-  const history = useHistory()
+  const { isAuth, dispatchAuth } = useAuth();
+  const history = useHistory();
+  const location = useLocation()
+
+  console.log(history, location);
+  
+
+  useEffect(() => {
+    return () => localStorage.removeItem(PREV_ROUTER);
+  }, [])
 
   useEffect(() => {
     if (isAuth) history.replace("/");
-  }, [isAuth]);
+  }, [isAuth, history]);
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    setAuthencation(true, {
-      username: "vanquang312",
-      permissions: [
-        // appPermisions.ADMIN_PAGE,
-        // appPermisions.DASHBOARD_PAGE,
-        // ...Object.keys(appPermisions)
-        ...Object.values(appPermisions)
-      ],
-      fullname: "Mai Văn Quang",
-      email: "maiquang1470@gmail.com",
-      role: "ADMIN",
-
-    });
+    dispatchAuth({
+      type: "SET_AUTHEN",
+      payload: {
+        isAuth: true,
+        user: {
+          username: "vanquang312",
+          permissions: [
+            ...Object.values(appPermisions)
+          ],
+          fullname: "Mai Văn Quang",
+          email: "maiquang1470@gmail.com",
+          role: "ADMIN",
+        }
+      }
+    })
     localStorage.setItem(ACCESS_TOKEN, "231231320");
-    history.push('/admin')
+    history.push((new URLSearchParams(history.location.search)).get("auth") ? "/admin" : "/")
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -67,7 +77,7 @@ const LoginPage: React.FC<LoginPageProps> = () => {
             name="username"
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input className={styles.input}/>
+            <Input className={styles.input} />
           </Form.Item>
 
           <Form.Item
@@ -91,34 +101,3 @@ const LoginPage: React.FC<LoginPageProps> = () => {
 }
 
 export default LoginPage;
-
-{/* <Link to="/"><h1>Login Page</h1></Link>
-      <Form
-        {...layout}
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-      >
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: 'Please input your username!' }]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
-        >
-          <Input.Password />
-        </Form.Item>
-
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
-        </Button>
-        </Form.Item>
-      </Form> */}

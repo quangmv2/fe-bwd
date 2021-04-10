@@ -1,10 +1,7 @@
-import React, { lazy, Suspense } from 'react';
-// import Landing from "../landing-page";
+import React, { lazy } from 'react';
 import { Route } from 'react-router-dom'
 import { routersNotAuth } from "@routers";
-// import AppAuth from './appAuth';
 import { LayoutNotAuth } from 'src/components/layout';
-import NotFoundPage from '../404';
 
 const Components = {}
 
@@ -33,11 +30,6 @@ const App: React.FC<AppProps> = (props) => {
                     />
                 ))
             }
-            {/* <Route path="*" render={() =>
-                <Suspense fallback="Loading" >
-                  <NotFoundPage />
-                </Suspense>} 
-              /> */}
         </>
     );
 }

@@ -4,10 +4,10 @@ import { UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/
 import { menuRouters } from '@routers';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import logo from "@assets/icons/logo.png";
-import { useAuth } from '@store';
+import { useAuth } from '@context';
 import { ACCESS_TOKEN, TAB_ADMIN_MODE } from '@constants';
 import styles from "./auth.module.scss";
-import { uniq, inRange, indexOf, isNull } from "lodash";
+import { uniq, inRange, indexOf } from "lodash";
 import { LoadingLazyComponent } from '../loading-page';
 
 const { SubMenu } = Menu;
@@ -35,7 +35,7 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
 
     const [toggleCollapsed, setToggleCollapsed] = useState<boolean>(false);
     const { path } = useRouteMatch();
-    const { setIsAuth, setUser, user } = useAuth();
+    const { dispatchAuth, user } = useAuth();
     const history = useHistory();
 
     useEffect(() => {
@@ -45,10 +45,14 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
 
     const logout = useCallback(() => {
         localStorage.removeItem(ACCESS_TOKEN);
-        setIsAuth(false);
-        setUser(null);
+        dispatchAuth({
+            type: "SET_AUTHEN",
+            payload: {
+                isAuth: false
+            }
+        })
         history.replace("/");
-    }, [history, setIsAuth, setUser])
+    }, [history, dispatchAuth])
 
     const toggle = () => {
         setToggleCollapsed(c => {
@@ -79,7 +83,7 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
                                     <Avatar shape="square" icon={<UserOutlined />} />
                                 </Badge>
                             </span>
-                            <p>ADMIN</p>
+                            <p>{user.username}</p>
                         </div>
                         <Button type="primary" onClick={toggle}>
                             {React.createElement(toggleCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
@@ -96,12 +100,12 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
 
                                 if (mR.permissions.length > 0 && (!user || !inRange(uniq([...user.permissions, ...mR.permissions]).length,
                                     user.permissions.length,
-                                    user.permissions.length + mR.permissions.length))) return;
+                                    user.permissions.length + mR.permissions.length))) return "";
                                 if (mR["childs"] && mR.childs.length > 0) return (
                                     <SubMenu title={mR.title} key={`submenu ${mR.dest}`}>
                                         {
                                             mR.childs.map(chi => {
-                                                if (!user || indexOf(user.permissions, chi.permission) == -1) return;
+                                                if (!user || indexOf(user.permissions, chi.permission) === -1) return "";
                                                 return (
                                                     <Menu.Item key={`menu ${chi.dest}`}>
                                                         <Link to={chi.dest}>{chi.title}</Link>

@@ -1,20 +1,15 @@
 import { Route, Switch, BrowserRouter as Router, Redirect } from 'react-router-dom'
-import AppNoAuth from "./appNoAuth";
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
 import { routersNotAuth } from '@routers';
 import AppAuth from './appAuth';
-import { useAuth } from '@store';
+import { useAuth } from '@context';
 import { ACCESS_TOKEN, appPermisions } from '@constants';
 import { LoadingLazyComponent } from '@components';
 import { Snackbar } from '@material-ui/core'
-import { DisconnectOutlined, WifiOutlined } from '@ant-design/icons';
+import { DisconnectOutlined } from '@ant-design/icons';
 import { useOnlineStatus } from '@utils';
 import { LayoutNotAuth } from 'src/components/layout';
 import { indexOf } from "lodash";
-
-
-const NotFound = lazy(() => import("../404"));
-const Home = lazy(() => import("../landing-page"));
 
 const Components = {}
 
@@ -27,7 +22,7 @@ interface AppProps {
 
 const AppRouters: React.FC<AppProps> = (props) => {
 
-  const { isAuth, setAuthencation, user } = useAuth()
+  const { isAuth, user, dispatchAuth } = useAuth()
   const [loging, setLoging] = useState<boolean>(true);
   const internet = useOnlineStatus()
 
@@ -37,20 +32,25 @@ const AppRouters: React.FC<AppProps> = (props) => {
       setLoging(false);
       return
     };
-    setAuthencation(true, {
-      username: "vanquang312",
-      permissions: [
-        ...Object.values(appPermisions)
-      ],
-      fullname: "Mai Văn Quang",
-      email: "maiquang1470@gmail.com",
-      role: "ADMIN",
-    });
+    dispatchAuth({
+      type: "SET_AUTHEN",
+      payload: {
+        isAuth: true,
+        user: {
+          username: "vanquang312",
+          permissions: [
+            ...Object.values(appPermisions)
+          ],
+          fullname: "Mai Văn Quang",
+          email: "maiquang1470@gmail.com",
+          role: "ADMIN",
+        }
+      }
+    })
     setLoging(false);
-  }, [])
+  }, [dispatchAuth])
 
   console.log(user);
-
 
   return (
     <React.Fragment>
@@ -60,15 +60,17 @@ const AppRouters: React.FC<AppProps> = (props) => {
             basename={
               process.env.APP_NAME ? process.env.APP_NAME : "/"
             }
+            
           >
             <Switch>
               <Route
                 path="/admin"
                 key="/admin page"
                 render={routeProps => {
-                  if (isAuth && user && indexOf(user.permissions, appPermisions.ADMIN_PAGE) != -1)
+                  if (isAuth && user && indexOf(user.permissions, appPermisions.ADMIN_PAGE) !== -1)
                     return <AppAuth {...props} {...routeProps} />
-                  return <Redirect to="/login" />
+                  localStorage.setItem("PREV_ROUTER", "/admin")
+                  return <Redirect to="/login?auth=true"  />
                 }}
               />
               {

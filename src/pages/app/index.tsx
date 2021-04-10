@@ -1,9 +1,9 @@
-import { AuthContextProvider } from '@store';
+import { StoreContextProvider } from '@context';
 import React from 'react';
 import { HeaderProvider } from 'src/utils';
 import AppRouters from './app';
-import { ApolloProvider } from 'react-apollo'
-import { Client } from '@tools';
+// import { ApolloProvider } from 'react-apollo'
+// import { Client } from '@tools';
 
 interface AppProps {
 
@@ -12,11 +12,11 @@ interface AppProps {
 const App: React.FC<AppProps> = () => {
   return (
     // <ApolloProvider client={Client}>
-      <AuthContextProvider>
+      <StoreContextProvider>
         <HeaderProvider>
           <AppRouters />
         </HeaderProvider>
-      </AuthContextProvider>
+      </StoreContextProvider>
     // </ApolloProvider>
   );
 }

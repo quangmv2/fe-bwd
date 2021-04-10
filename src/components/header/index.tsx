@@ -3,7 +3,8 @@ import styles from "./styles.module.scss";
 import logo from "@assets/icons/logo.png";
 import { Link } from "react-router-dom";
 import { useHeader } from '@utils';
-import { useAuth } from '@store';
+import { useAuth } from '@context';
+import { ACCESS_TOKEN } from '@constants';
 interface HeaderComponentProps {
     visible?: boolean
 }
@@ -12,12 +13,17 @@ const HeaderComponent: React.FC<HeaderComponentProps> = memo(({
     visible = true
 }) => {
 
-    const { isAuth, setAuthencation } = useAuth();
+    const { isAuth, dispatchAuth } = useAuth();
     const { visible: visibleHook } = useHeader();
 
-    const logout = useCallback(() => {
-        setAuthencation(false);
-    }, [])
+    const logout = useCallback((event) => {
+        event.preventDefault();
+        dispatchAuth({
+            type: "SET_AUTH",
+            payload: { isAuth: false }
+        });
+        localStorage.removeItem(ACCESS_TOKEN);
+    }, [dispatchAuth])
 
     const pages = [
         {
@@ -66,7 +72,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = memo(({
                             </Link>
                         </>
                     ) : (
-                            <a onClick={logout}>
+                            <a onClick={logout} href="#/">
                                 <p>Logout</p>
                             </a>
                         )
