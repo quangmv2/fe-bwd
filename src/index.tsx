@@ -4,6 +4,8 @@ import './index.css';
 import 'antd/dist/antd.min.css'
 import { AppRouters } from '@pages';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(
   <React.StrictMode>

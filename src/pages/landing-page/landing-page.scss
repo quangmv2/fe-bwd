@@ -1,0 +1,15 @@
+@import '../../assets/styles/color';
+.landing-page-container {
+    .ant-input {
+        height: 48px;
+        background-color: #f2f2f2!important;
+        border: none;
+        &::placeholder {
+            color:  #495057;
+            font-weight: 400;
+        }
+        // ::placeholder {
+        //     color: red
+        // }
+    }
+}
