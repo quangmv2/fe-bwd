@@ -1,0 +1,41 @@
+@import '../../../assets/styles/color';
+.quick-chat-wrap {
+    .ant-avatar {
+        border-radius: 12px;
+    }
+    .ant-input-affix-wrapper {
+        background: #f7fafb;
+        border-radius: 12px;
+        height: 40px;
+        margin-top: 1rem;
+       .anticon {
+           color: $text-bold-color
+       }
+        .ant-input {
+            font-weight: 700;
+            padding-left: .5rem;
+        }
+    }
+    
+}
+.friend-list-wrap {
+    .contact-item-wrap {
+        .ant-badge-count {
+            background-color: red;
+            p {
+                font-weight: 600 !important;
+                color: white
+            }
+        }
+    }
+    .ant-badge-count {
+        background-color: $grey-color;
+        p {
+            color: white;
+            font-weight: 600 !important;
+        }
+    }
+    .ant-avatar {
+        border-radius: 12px;
+    }
+}

@@ -1,0 +1,13 @@
+@import '../../assets/styles/color';
+.container {
+    p {
+        color: $text-detail-color;
+        font-size: 14px;
+        line-height: 21px;
+       
+    }
+    .icon {
+        font-size: 50px;
+        color: $primary-color
+    }
+}

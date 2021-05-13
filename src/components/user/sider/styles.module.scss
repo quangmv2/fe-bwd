@@ -1,0 +1,34 @@
+@import '../../../assets/styles/color';
+.container {
+    .userNameWrap {
+        border-radius: 12px;
+        .name {
+            font-size: 15px;
+            font-weight: 620;
+            color: $text-bold-color;
+        }
+        .username {
+            font-size: 14px;
+        }
+        
+    }
+    .friendRequestWrap {
+        .friendRequestTitle {
+            color: #adb8c5;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .friendRequestContainer {
+            p {
+                font-size: 15px;
+                color: $text-bold-color;
+                padding-left: .75rem;
+               
+            }
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+
+}

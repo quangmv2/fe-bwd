@@ -2,6 +2,7 @@ import { Route, Switch, BrowserRouter as Router, Redirect } from 'react-router-d
 import React, { lazy, useEffect, useState } from 'react';
 import { routersNotAuth } from '@routers';
 import AppAuth from './appAuth';
+import AppUser from './appUser';
 import { useAuth } from '@context';
 import { ACCESS_TOKEN, appPermisions } from '@constants';
 import { Loging } from '@components';
@@ -107,6 +108,15 @@ const AppRouters: React.FC<AppProps> = (props) => {
 
           >
             <Switch>
+              <Route
+                path="/user"
+                key="/user page"
+                render={routeProps => {
+                  if (isAuth && user)
+                    return <AppUser {...props} {...routeProps} />
+                  return <Redirect to="/login" />
+                }}
+              />
               <Route
                 path="/admin"
                 key="/admin page"

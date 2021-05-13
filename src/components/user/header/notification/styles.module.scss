@@ -1,0 +1,33 @@
+@import '../../../../assets/styles/color';
+.wrap {
+    width: 400px;
+    max-height: calc(100vh - 60px);
+    overflow: auto;
+   .title {
+    color: $text-bold-color;
+    font-size: 22px;
+    font-weight: 700;
+   } 
+   .notiContent {
+    .notiText {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+       padding-left: .5rem;
+       max-width: 400px;
+       
+       p {
+           color: $text-bold-color;
+           font-size: 14px;
+           font-weight: 500;
+       }
+       span {
+           font-size: 12px;
+           color: $color-text-muted;
+       }
+   }
+
+}

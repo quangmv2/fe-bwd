@@ -1,16 +1,350 @@
+@import '../../assets/styles/color';
+
 .container {
     // display: flex;
     height: 100vh;
     // width: 100vw;
-    padding: 0 30px;
+    // padding: 0 30px;
     // justify-content: center;
     // align-items: center;
-    background-color: rgba(248, 248, 250, 1.0);
+    // background-color: rgba(248, 248, 250, 1.0);
     flex-direction: column;
-    background: url("../../assets/images/header-bg.png");
+    // background: url("../../assets/images/header-bg.png");
     background-position: right top;
     background-repeat: no-repeat;
-    // background-size: 100% 100%;
 
+    // background-size: 100% 100%;
+    .sloganContainer {
+        padding-top: 160px;
+        padding-left: 90px;
+        padding-right: 90px;
+    }
+
+    .sloganContent {
+        font-weight: 700;
+        color: $text-bold-color;
+        font-size: 48px;
+        line-height: 52.8px;
+    }
+
+    .sloganBody {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        color: $text-detail-color
+    }
+
+    .swuButton {
+        background-color: $primary-color;
+        font-weight: 500;
+        font-size: 22px;
+        border-radius: 8px;
+    }
+
+    .imageWrap {
+
+
+        // display: block;
+        // max-width: 296px;
+        // max-height: 355px;
+        // width: auto;
+        // height: auto;
+    }
+
+    .woman1Size {
+        border: 8px solid white;
+        border-radius: 8px;
+        width: 296px;
+        height: 355px;
+        background-size: cover;
+        background-image: url(../../assets/images/woman-1.png);
+        position: absolute;
+        left: 280px;
+        top: 0px;
+        filter: drop-shadow(20px 100px 80px rgba(10, 58, 100, 0.3));
+    }
+
+    .woman2Size {
+        border: 5px solid white;
+        border-radius: 8px;
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+        background-image: url(../../assets/images/woman-2.jpeg);
+        position: absolute;
+        left: 130px;
+        top: 0px;
+        filter: drop-shadow(20px 50px 70px rgba(7, 63, 112, 0.4));
+    }
+
+    .hugSize {
+        position: absolute;
+        left: 627px;
+        top: 261px;
+        border: 8px solid white;
+        border-radius: 8px;
+        width: 150px;
+        height: 120px;
+        object-fit: cover;
+        background-image: url(../../assets/images/hug.jpeg);
+        filter: drop-shadow(30px 40px 80px rgba(8, 35, 61, 0.5));
+    }
+    .mainFuncTitle {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .goalsHeader {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #696663;
+
+        p {
+            color: $text-detail-color;
+            font-size: 14px;
+            line-height: 21px;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: $text-bold-color;
+            font-size: 48px;
+            line-height: 52.8px;
+        }
+    }
+
+    .goalsContainer {
+        padding: 80px 30px;
+        padding-bottom: unset;
+
+        mark {
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+
+            &::after {
+                background-image: url(../../assets/images/underline-2.svg);
+                bottom: -15px;
+                left: 0;
+                width: 100%;
+                height: 30px;
+                background-position: bottom;
+                background-size: contain;
+                content: '';
+                position: absolute;
+                background-repeat: no-repeat;
+            }
+        }
+
+    }
+
+    .videoPlay {
+        position: relative;
+        background-image: url(../../assets/images/lights.png);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 0 -300px;
+        text-align: center;
+        color: #fff;
+        z-index: 1;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: .65;
+            z-index: -1;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        .playIcon {
+            font-size: 50px;
+        }
+    }
+
+    .iconWrap {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #f1f1f1;
+        text-align: center;
+        font-size: 14.5px;
+        line-height: 40px;
+        margin-left: 5px;
+
+    }
+
+    .overViewContent {
+        padding-left: 40px;
+
+    }
+
+    .lastOverviewContent {
+        padding-right: 40px;
+       
+    }
+
+    .mainFuncContainer {
+        span {
+            position: relative;
+            color: $navy-blue-color;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none !important;
+                transition: all 400ms ease;
+                cursor: pointer;
+            }
+
+
+        }
+
+        h2 {
+            font-weight: 700;
+            color: $text-bold-color;
+            font-size: 48px;
+            line-height: 52.8px;
+        }
+
+          img {
+              border-top-right-radius: 80px;
+              height: auto;
+          }
+        h3 {
+            font-weight: 700;
+            color: $text-bold-color;
+        }
+
+        p {
+            color: $text-detail-color;
+        }
+    }
+
+    .functionItemWrap {
+        border: 0.25px solid #C7C7C7;
+
+
+    }
+
+    .functionItemWrap:nth-child(odd) {
+        border-right: unset;
+
+    }
+
+    .functionItemWrap:nth-child(4) {
+        border-top: unset;
+        border-bottom: unset;
+    }
+
+    .functionItemWrap:nth-child(3) {
+        border-top: unset;
+        border-bottom: unset;
+    }
+
+    .subArea {
+        .subcribeContent {
+            padding-right: 50px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: $text-bold-color;
+            font-size: 48px;
+            line-height: 52.8px;
+        }
+
+        button {
+            background-color: $primary-color;
+            font-weight: bold;
+            padding: 11px 30px
+        }
+
+        padding-top: 100px;
+        position: relative;
+        z-index: 1;
+        background-image: url(../../assets/images/subcribe-background.jpg);
+        background-position: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: .65;
+            z-index: -1;
+        }
+    }
+
+    .formWrap {
+        padding: 50px 35px;
+        max-width: 360px;
+    }
+    .imageContentWrap {
+        max-height: 450px;
+        object-fit: contain
+        
+    }
     
+    
+}
+@media (max-width: 991px) {
+    .imageContentWrap {
+        margin-bottom: 30px;
+    }
+    .formWrap {
+        max-width: 555px !important;
+        margin-left: auto;
+    margin-right: auto;
+    }
+    .lastOverviewContent {
+        order: 2;
+        text-align: center;
+        
+    }
+    .overViewContent {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .overViewBox {
+        margin-top: 35px;
+    }
+    .subcribeContent {
+        text-align: center;
+        margin-bottom: 35px;
+        padding-right: unset !important;
+        
+    }
+    // .container  {
+    //     background: unset !important;
+       
+    // }
+    // .sloganRight {
+    //     background-image: url(../../assets/images/Group-32.png);
+    //     background-size: cover;
+    //     min-width: 768px;
+    //     height: 100px;
+    // }
 }

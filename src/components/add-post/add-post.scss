@@ -1,0 +1,33 @@
+@import '../../assets/styles/color';
+.add-post-wrap {
+    .ant-avatar {
+        border-radius: 12px;
+    }
+    .option-wrap {
+        .anticon {
+            font-size: 20px;
+        
+        }
+        p {
+            color: $bold-grey-color;
+            font-weight: 600;
+            padding-right: 1.5rem;
+            padding-left: 0.5rem;
+        }
+    }
+  
+
+       
+        .ant-input {
+            font-size: 14px;
+            text-transform: capitalize;
+            font-weight: 700;
+            border: none;
+           
+             &:focus, &:focus-visible {
+                 border: none;
+                 box-shadow: unset !important;
+             }
+        }
+       
+}

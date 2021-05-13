@@ -1,11 +1,13 @@
 import React, { CSSProperties, memo } from 'react';
+import { CloseOutlined } from '@ant-design/icons';
 import styles from "./styles.module.scss";
 
 interface buttonProps {
     onPress?: Function,
     type?: "button" | "submit" | "reset",
     style?: CSSProperties,
-    className?: string
+    className?: string,
+    icon?: any
 }
 
 const button: React.FC<buttonProps> = memo(({
@@ -13,20 +15,19 @@ const button: React.FC<buttonProps> = memo(({
     type,
     style,
     className,
-    onPress
+    onPress,
+    icon
 }) => {
     return (
         // <div className={styles.container}>
-            <button
-                className={`${styles.btn} ${className}`}
-                type={type}
-                style={style}
-                onClick={() => onPress&&onPress()}
-            >
-                <label 
-                    // className={styles.btn-label}
-                >{children ? children : "Button"}</label>
-            </button>
+        <button
+            className={`w-100  text-white border-radius-12 btn ${styles.btn} ${className}`}
+            type={type}
+            style={style}
+            onClick={() => onPress && onPress()}
+        >
+            {children}
+        </button>
         // </div>
     );
 })
