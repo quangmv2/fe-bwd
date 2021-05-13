@@ -65,11 +65,11 @@ const AppRouters: React.FC<AppProps> = (props) => {
                 </LayoutNotAuth>
               </Suspense>} />
               <AppNoAuth {...props} />
-              <Route render={() =>
+              {/* <Route render={() =>
                 <Suspense fallback="Loading" >
                   <NotFound />
                 </Suspense>} 
-              />
+              /> */}
             </Switch>
           </Router>
       }

@@ -1,0 +1,15 @@
+@import '../../../assets/styles/color';
+.container {
+    .userNameWrap {
+        border-radius: 12px;
+        .name {
+            font-size: 15px;
+            font-weight: 620;
+            color: $text-bold-color;
+        }
+        .username {
+            font-size: 14px;
+        }
+        
+    }
+}

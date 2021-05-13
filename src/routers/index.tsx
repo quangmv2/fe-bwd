@@ -16,6 +16,12 @@ const routersNotAuth = [
         component: 'register',
         noHeader: true
     },
+    {
+        exact: true,
+        path: '/home',
+        component: 'user',
+        noHeader: true
+    },
     // {
     //     exact: true,
     //     path: '/',
@@ -150,9 +156,84 @@ const menuRouters = [
     //     code: "LOGOUT"
     // }
 ]
+const menuUserRouters = [
+    {
+        title: "Dashboard",
+        type: "link",
+        dest: "/admin/",
+        code: "DASHBOARD"
+    },
+    {
+        title: 'Tài khoản',
+        type: "navigation",
+        dest: "/admin/users",
+        code: "USERS",
+        childs: [
+            {
+                title: 'Danh sách tài khoản',
+                type: "sub_navigation",
+                dest: "/admin/users",
+                icon: "",
+                code: "LIST_USER",
+            },
+            {
+                title: 'Thêm tài khoản',
+                type: "sub_navigation",
+                dest: "/admin/users/create",
+                icon: "",
+                code: "CREATE_USER",
+            },
+            {
+                title: 'Sửa tài khoản',
+                type: "sub_navigation",
+                dest: "/admin/users/edit",
+                icon: "",
+                code: "EDIT_USER",
+            }
+        ]
+    },
+    {
+        title: 'Phòng họp',
+        type: "navigation",
+        dest: "/admin/conferences",
+        code: "CONFERENCE",
+        childs: [
+            {
+                title: 'Phòng họp đang hoạt động',
+                type: "sub_navigation",
+                dest: "/admin/conferences/active",
+                icon: "",
+                code: "ACTIVE_CONFERENCE",
+            },
+            {
+                title: 'Danh sách phòng họp',
+                type: "sub_navigation",
+                dest: "/admin/conferences",
+                icon: "",
+                code: "LIST_CONFERENCE",
+            },
+            {
+                title: 'Thêm phòng họp',
+                type: "sub_navigation",
+                dest: "/admin/conferences/create",
+                icon: "",
+                code: "CREATE_CONFERENCE",
+            },
+            {
+                title: 'Sửa phòng họp',
+                type: "sub_navigation",
+                dest: "/admin/conferences/edit",
+                icon: "",
+                code: "EDIT_CONFERENCE",
+            }
+        ]
+    },
+]
+
 
 export {
     routersNotAuth,
     routersAuth,
-    menuRouters
+    menuRouters,
+    menuUserRouters
 }

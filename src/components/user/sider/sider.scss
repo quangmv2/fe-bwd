@@ -1,0 +1,62 @@
+@import '../../../assets/styles/color';
+.user-sider-wrap {
+    .ant-avatar {
+        border-radius: 12px;
+    }
+    .friend-request-wrap {
+        .ant-badge-count {
+            border-radius: 9px;
+            background-color: red;
+            p {
+                font-weight: 600;
+            }
+        }
+    }
+    .ant-menu-item {
+        padding: 0px 0px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-bottom: 0px;
+        display: flex;
+        align-items: center;
+        border-bottom: 0.2px solid $border-color;
+        
+        .anticon {
+            color: $grey-color !important;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        span {
+            color: #445c7a;
+            font-weight: 700;
+            font-size: 15px;
+            padding-left: .75rem;
+            
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    .friend-request-container {
+        .anticon {
+            font-size: 22px;
+            height: 45px;
+            width: 45px;
+            display: flex;
+            border: 2px solid $border-color;
+            border-radius: 12px;
+            justify-content: center;
+            align-items: center;
+            margin-left: .25rem;
+            color: $bold-grey-color;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .button-wrap {
+            padding-right: .25rem;
+            flex-grow: 3;
+        }
+    }
+}

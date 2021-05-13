@@ -51,6 +51,8 @@ const Landing: React.FC<LandingProps> = () => {
                     <div>
                     <p className={indexStyles.sloganContent}>Cutting edge technology building the best online conference solution</p>
                     <img src={underline} />
+                    <p className='text-gray-600'>hello test</p>
+                    <p className='text-blue-300'>hello test</p>
                     <p className={`pt-4 ${indexStyles.sloganBody}`}>Without in-depth technology, business may find it hard to maintain effective management. HopEZ is a conference web-based solution to allow businesses, teams and schools/university to approach no-barriers conversation including online conference, online classes or webinars which are supported by varied powerful functionalities.</p>
                     <button className={`btn text-white mt-4 py-2 ${indexStyles.swuButton}`}>Share with us</button>
                     </div>
@@ -99,7 +101,7 @@ const Landing: React.FC<LandingProps> = () => {
                 </div>
             </section>
             <section className={`pt-5 container ${indexStyles.mainFuncContainer}`}>
-                <h2 className='text-center'>Just do it right, you'll be safe</h2>
+                <h2 className={` ${indexStyles.mainFuncTitle} text-center`}>Just do it right, you'll be safe</h2>
                 <Row className='pt-5'>
                     <Col lg={12} md={24} className={indexStyles.imageContentWrap}>
                         <img className='w-100 h-100'  src={womanTogether} />

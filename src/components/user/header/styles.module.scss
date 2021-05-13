@@ -1,0 +1,11 @@
+.wrap {
+    max-height: 70px;
+    .headerLeftWrap {
+        width: 450px;
+    }
+    @media (max-width: 992px) {
+        .headerLeftWrap {
+            width: 180px;
+        } 
+    }
+}

@@ -1,0 +1,28 @@
+@import '../../../assets/styles/color';
+.header-wrap {
+   
+    .anticon {
+        font-size: 22px;
+    }
+    .ant-input-affix-wrapper {
+        background: $color-background !important;
+        border-radius: 12px;
+        height: 35px;
+        width: 300px;
+        .anticon {
+            color: $color-text-muted;
+            font-size: 16px;
+        }
+        .ant-input {
+            padding-left: .5px;
+            font-weight: 600;
+            color: $text-bold-color;
+        }
+    }
+}
+.ant-drawer-content-wrapper {
+    width: 285px !important;
+    .ant-drawer-body {
+        padding: 0 !important;
+    }
+}

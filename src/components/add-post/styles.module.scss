@@ -1,0 +1,72 @@
+@import '../../assets/styles/color';
+
+.wrap {
+
+
+    .inputWrap {
+        width: 86%
+    }
+
+    .postButton {
+        max-width: 110px;
+        min-width: 110px;
+    }
+
+    .buttonWrap {
+        width: 14%;
+
+        span {
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+
+    .moreOption {
+        margin-right: 8px;
+    }
+
+    .videoIcon {
+        color: $color-danger
+    }
+
+    .cameraIcon {
+        color: $color-success
+    }
+
+    .heartIcon {
+        color: $color-wraning
+    }
+
+    @media (max-width: 1165px) {
+        .postButton {
+            .postButtonContent {
+                display: none;
+            }
+
+            max-width: max-content;
+            min-width: unset !important
+        }
+    }
+
+    @media (max-width: 768px) {
+        .postButton {
+            .postButtonContent {
+                display: unset !important;
+            }
+
+            max-width: 110px !important;
+            min-width: 110px !important;
+        }
+    }
+    @media (max-width: 576px) {
+        .postButton {
+            .postButtonContent {
+                display: none !important;
+            }
+
+            max-width: max-content !important;
+            min-width: unset !important
+        }
+    }
+}

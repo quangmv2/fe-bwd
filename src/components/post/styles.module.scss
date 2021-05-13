@@ -1,0 +1,41 @@
+@import '../../assets/styles/color';
+.wrap {
+    .name {
+        font-size: 15px;
+        font-weight: 620;
+        color: #0A2053;
+    }
+    p {
+        font-size: 14px;
+    }
+    .moreContainer {
+        border: 2px solid $border-color;
+        border-radius: 5px
+    }
+    .content {
+        p {
+            font-weight: 500;
+            font-size: 15px;
+            text-align: justify;
+            color: $text-bold-color
+        }
+        .imageContainer {
+            height: 400px;
+            overflow: hidden
+        }
+        
+    }
+    .likeIconContainer {
+        background-color: $button-blue-color;
+        width: 32px;
+        height: 32px;
+    }
+    .reactSection {
+        span {
+            padding-left: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            color: $text-bold-color
+        }
+    }
+}

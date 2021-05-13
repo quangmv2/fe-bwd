@@ -1,3 +1,4 @@
+import { CloseOutlined } from '@ant-design/icons';
 import React, { CSSProperties } from 'react';
 import styles from "./styles.module.scss";
 
@@ -5,25 +6,25 @@ interface buttonProps {
     onPress?: Function,
     type?: "button" | "submit" | "reset",
     style?: CSSProperties,
-    className?: string
+    className?: string,
+    icon?: any
 }
 
 const button: React.FC<buttonProps> = ({
     children,
     type,
     style,
-    className
+    className,
+    icon
 }) => {
     return (
         // <div className={styles.container}>
             <button
-                className={`${styles.btn} ${className}`}
+                className={`w-100  text-white border-radius-12 btn ${styles.btn} ${className}`}
                 type={type}
                 style={style}
             >
-                <label 
-                    // className={styles.btn-label}
-                >{children ? children : "Button"}</label>
+               {children} 
             </button>
         // </div>
     );

@@ -1,0 +1,14 @@
+@import '../../assets/styles/color';
+.btn {
+    border-radius: 12px !important;
+    border: 1.5px solid $button-border-color !important;
+    &:hover {
+        cursor: pointer;
+    }
+
+   label {
+       color: $text-bold-color;
+       font-weight: 600;
+       font-size: 16px;
+   } 
+}
