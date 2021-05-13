@@ -25,6 +25,8 @@ const dotenvFiles = [
   paths.dotenv,
 ].filter(Boolean);
 
+
+
 // Load environment variables from .env* files. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables
 // that have already been set.  Variable expansion is supported in .env files.
@@ -59,6 +61,7 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in webpack configuration.
 const REACT_APP = /^REACT_APP_/i;
+
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
@@ -99,7 +102,6 @@ function getClientEnvironment(publicUrl) {
       return env;
     }, {}),
   };
-
   return { raw, stringified };
 }
 

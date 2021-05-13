@@ -1,24 +1,28 @@
-import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloLink, split } from 'apollo-link'
-import { HttpLink } from 'apollo-link-http'
-import { setContext } from 'apollo-link-context'
-import { WebSocketLink } from 'apollo-link-ws'
-import { getMainDefinition } from 'apollo-utilities'
-
+import {
+  ApolloClient,
+  HttpLink,
+  split,
+  ApolloLink,
+  InMemoryCache
+} from "@apollo/client";
+import { setContext } from '@apollo/client/link/context';
+import { WebSocketLink } from "@apollo/client/link/ws";
+import { getMainDefinition } from '@apollo/client/utilities';
 import { errorMiddleware } from './middleware'
 import { ACCESS_TOKEN } from '@constants'
 
 
-let Client;
-
 const domain = window.location.host // 'tms2.digihcs.com'
 const endPoint = `${process.env.END_POINT}`
 
-const urn = process.env.GRAPHQL_URN || `${domain}/${endPoint}`
+const urn = process.env.REACT_APP_GRAPHQL_URN || `${domain}/${endPoint}`
 
 const httpLink = new HttpLink({
-  uri: `${window.location.protocol}//${urn}`
+  uri: `${window.location.protocol}//${urn}`,
+  headers: {
+    'access-token': localStorage.getItem(`${ACCESS_TOKEN}`) || ''
+    
+  }
 })
 
 const wsLink = new WebSocketLink({
@@ -34,24 +38,30 @@ const wsLink = new WebSocketLink({
 const authLink = setContext((_, { headers }) => ({
   headers: {
     ...headers,
-    'access-token': localStorage.getItem(`Bearer ${ACCESS_TOKEN}`) || ''
+    'access-token': localStorage.getItem(`${ACCESS_TOKEN}`) || ''
   }
 }))
 
-const linkSplit = split(
+const splitLink = split(
   ({ query }) => {
-    const { kind, operation } = getMainDefinition(query)
-    return kind === 'OperationDefinition' && operation === 'subscription'
+    const definition = getMainDefinition(query);
+    return (
+      definition.kind === 'OperationDefinition' &&
+      definition.operation === 'subscription'
+    );
   },
   wsLink,
-  httpLink
-)
+  httpLink,
+);
 
-const link = ApolloLink.from([errorMiddleware, linkSplit])
 
-Client = new ApolloClient({
+const link = ApolloLink.from([errorMiddleware, splitLink])
+
+const client = new ApolloClient({
   link: authLink.concat(link),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    addTypename: false
+  })
 })
 
-export { Client }
+export { client }

@@ -7,3 +7,4 @@ export {
 export * from './header'
 export * from './loading-page'
 export * from './beep-loader'
+export * from './loging'

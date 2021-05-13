@@ -1,5 +1,5 @@
 import React, { Suspense, useCallback, useEffect, useState } from 'react';
-import { Layout, Menu, Button, Badge, Avatar } from 'antd';
+import { Layout, Menu, Button, Badge, Avatar, Skeleton } from 'antd';
 import { UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { menuRouters } from '@routers';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
@@ -9,6 +9,8 @@ import { ACCESS_TOKEN, TAB_ADMIN_MODE } from '@constants';
 import styles from "./auth.module.scss";
 import { uniq, inRange, indexOf } from "lodash";
 import { LoadingLazyComponent } from '../loading-page';
+import { mutateData } from 'src/tools/apollo/func';
+import { LOGOUT } from 'src/graphql/mutation';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -40,10 +42,18 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
 
     useEffect(() => {
         document.title = "ADMIN";
-        if (!localStorage.getItem(TAB_ADMIN_MODE)) setToggleCollapsed(true);
+        // if (!localStorage.getItem(TAB_ADMIN_MODE)) setToggleCollapsed(true);
     }, [])
 
-    const logout = useCallback(() => {
+    const logout = useCallback(async () => {
+        try {
+            const { data, errors } = await mutateData(LOGOUT);
+            if (errors || !data?.logout) {
+                return;
+            }
+        } catch (error) {
+
+        }
         localStorage.removeItem(ACCESS_TOKEN);
         dispatchAuth({
             type: "SET_AUTHEN",
@@ -134,16 +144,15 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb> */}
                     <Content
-                        className="site-layout-background"
+                        className={`site-layout-background ${styles['admin-layout']}`}
                         style={{
-                            padding: 24,
                             margin: 0,
                             minHeight: 280,
                             maxHeight: 'calc(100vh - 64px)',
                             overflow: "auto"
                         }}
                     >
-                        <Suspense fallback={<LoadingLazyComponent />} >
+                        <Suspense fallback={<Skeleton active />} >
                             {
                                 children
                             }

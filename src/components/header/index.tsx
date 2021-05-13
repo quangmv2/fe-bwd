@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useHeader } from '@utils';
 import { useAuth } from '@context';
 import { ACCESS_TOKEN } from '@constants';
+import { mutateData } from 'src/tools/apollo/func';
+import { LOGOUT } from 'src/graphql/mutation';
 interface HeaderComponentProps {
     visible?: boolean
 }
@@ -16,13 +18,25 @@ const HeaderComponent: React.FC<HeaderComponentProps> = memo(({
     const { isAuth, dispatchAuth } = useAuth();
     const { visible: visibleHook } = useHeader();
 
-    const logout = useCallback((event) => {
-        event.preventDefault();
-        dispatchAuth({
-            type: "SET_AUTH",
-            payload: { isAuth: false }
-        });
-        localStorage.removeItem(ACCESS_TOKEN);
+
+    const logout = useCallback(async (event) => {
+        try {
+            event.preventDefault();
+            const { data, errors } = await mutateData(LOGOUT);
+            if (errors || !data?.logout) {
+                return;
+            }
+            localStorage.removeItem(ACCESS_TOKEN);
+            dispatchAuth({
+                type: "SET_AUTHEN",
+                payload: {
+                    isAuth: false
+                }
+            })
+        } catch (error) {
+            console.log(error);
+
+        }
     }, [dispatchAuth])
 
     const pages = [

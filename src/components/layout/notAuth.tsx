@@ -1,3 +1,4 @@
+import { Skeleton } from 'antd';
 import React, { Suspense, useEffect } from 'react';
 import { HeaderComponent } from '../header';
 import { LoadingLazyComponent } from '../loading-page';
@@ -20,7 +21,7 @@ const LayoutNotAuth: React.FC<LayoutNotAuthProps> = ({
 
         <div>
             <HeaderComponent visible={ noHeader ? false : true }/>
-            <Suspense fallback={<LoadingLazyComponent />}>
+            <Suspense fallback={<Skeleton active />}>
                 {children}
             </Suspense>
         </div>

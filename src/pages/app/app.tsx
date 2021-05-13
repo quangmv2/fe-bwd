@@ -4,12 +4,14 @@ import { routersNotAuth } from '@routers';
 import AppAuth from './appAuth';
 import { useAuth } from '@context';
 import { ACCESS_TOKEN, appPermisions } from '@constants';
-import { LoadingLazyComponent } from '@components';
-import { Snackbar } from '@material-ui/core'
+import { Loging } from '@components';
+// import { Snackbar } from '@material-ui/core'
 import { DisconnectOutlined } from '@ant-design/icons';
 import { useOnlineStatus } from '@utils';
 import { LayoutNotAuth } from 'src/components/layout';
 import { indexOf } from "lodash";
+import { ME } from 'src/graphql/query';
+import { queryData } from 'src/tools/apollo/func';
 
 const Components = {}
 
@@ -27,40 +29,82 @@ const AppRouters: React.FC<AppProps> = (props) => {
   const internet = useOnlineStatus()
 
   useEffect(() => {
-    const token = localStorage.getItem(ACCESS_TOKEN);
-    if (!token) {
-      setLoging(false);
-      return
-    };
+    verifyAuth()
+  }, [dispatchAuth])
+
+  const verifyAuth = async () => {
+    // const token = localStorage.getItem(ACCESS_TOKEN);
+    // if (!token) {
+    //   setLoging(false);
+    //   return
+    // };
+    // const me = await fetchMe();
+    // if (!me) {
+    //   setLoging(false);
+    //   return
+    // }
+    // dispatchAuth({
+    //   type: "SET_AUTHEN",
+    //   payload: {
+    //     isAuth: true,
+    //     user: me
+    //   }
+    // })
+    const me: any = {
+      _id: "6084f501e817a7502ea9bb93",
+      username: "appadmin",
+      email: "admin@gmail.com",
+      role: {
+        _id: "6084f501e817a7502ea9bb90",
+        code: "APP_SUPERADMIN",
+        description: "Người quản trị hệ thống"
+      },
+      permissions: [
+        "APP_ADMIN_PAGE",
+        "APP_USER_VIEW",
+        "APP_USER_CREATE",
+        "APP_USER_EDIT",
+        "APP_USER_DELETE",
+        "APP_PERMISSION_VIEW",
+        "APP_ROLE_CREATE",
+        "APP_ROLE_EDIT",
+        "APP_ROLE_VIEW"
+      ],
+      createdAt: 1619326209272,
+      createdBy: null
+    }
+    if (!me) throw new Error();
     dispatchAuth({
       type: "SET_AUTHEN",
       payload: {
-        isAuth: true,
-        user: {
-          username: "vanquang312",
-          permissions: [
-            ...Object.values(appPermisions)
-          ],
-          fullname: "Mai Văn Quang",
-          email: "maiquang1470@gmail.com",
-          role: "ADMIN",
-        }
+        user: me,
+        isAuth: true
       }
-    })
+    });
     setLoging(false);
-  }, [dispatchAuth])
+  }
+
+  const fetchMe = async () => {
+    try {
+      const { data, errors } = await queryData(ME);
+      if (errors) return null;
+      return data.me;
+    } catch (error) {
+      console.log(error?.graphQLErrors);
+    }
+  }
 
   console.log(user);
 
   return (
     <React.Fragment>
       {
-        loging ? <LoadingLazyComponent /> :
+        loging ? <Loging /> :
           <Router
             basename={
               process.env.APP_NAME ? process.env.APP_NAME : "/"
             }
-            
+
           >
             <Switch>
               <Route
@@ -70,7 +114,7 @@ const AppRouters: React.FC<AppProps> = (props) => {
                   if (isAuth && user && indexOf(user.permissions, appPermisions.ADMIN_PAGE) !== -1)
                     return <AppAuth {...props} {...routeProps} />
                   localStorage.setItem("PREV_ROUTER", "/admin")
-                  return <Redirect to="/login?auth=true"  />
+                  return <Redirect to="/login?auth=true" />
                 }}
               />
               {
@@ -91,7 +135,7 @@ const AppRouters: React.FC<AppProps> = (props) => {
             </Switch>
           </Router>
       }
-      <Snackbar
+      {/* <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left'
@@ -103,7 +147,7 @@ const AppRouters: React.FC<AppProps> = (props) => {
             <DisconnectOutlined /> &nbsp; Mất kết nối internet.
           </div>
         }
-      />
+      /> */}
     </React.Fragment>
   );
 }

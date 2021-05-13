@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'antd/dist/antd.min.css'
+import 'antd/dist/antd.css'
 import { AppRouters } from '@pages';
 import reportWebVitals from './reportWebVitals';
+require('dotenv').config()
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <AppRouters />
-  </React.StrictMode>,
+  // </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 

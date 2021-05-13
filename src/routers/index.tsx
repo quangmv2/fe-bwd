@@ -44,16 +44,6 @@ const routersAuth: IRouter[] = [
     },
     {
         exact: true,
-        path: '/users/create',
-        component: 'admin/users/create'
-    },
-    {
-        exact: true,
-        path: '/users/edit',
-        component: 'admin/users/edit'
-    },
-    {
-        exact: true,
         path: '/conferences',
         component: 'admin/conferences'
     },
@@ -85,30 +75,7 @@ const menuRouters: IMenuRouter[] = [
             title: 'Tài khoản',
             type: "navigation",
             dest: "/admin/users",
-            permissions: [appPermisions.USER_LIST, appPermisions.USER_CREATE, appPermisions.USER_EDIT],
-            childs: [
-                {
-                    title: 'Danh sách tài khoản',
-                    type: "sub_navigation",
-                    dest: "/admin/users",
-                    icon: "",
-                    permission: appPermisions.USER_LIST,
-                },
-                {
-                    title: 'Thêm tài khoản',
-                    type: "sub_navigation",
-                    dest: "/admin/users/create",
-                    icon: "",
-                    permission: appPermisions.USER_CREATE,
-                },
-                {
-                    title: 'Sửa tài khoản',
-                    type: "sub_navigation",
-                    dest: "/admin/users/edit",
-                    icon: "",
-                    permission: appPermisions.USER_EDIT,
-                }
-            ]
+            permissions: [appPermisions.USER_VIEW],
         },
         {
             title: 'Phòng họp',
