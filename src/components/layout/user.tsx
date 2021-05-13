@@ -29,6 +29,7 @@ const UserPage: React.FC<UserPageProps> = ({
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const [toggleCollapsed, setToggleCollapsed] = useState<boolean>(false);
+
     return (
         <Layout style={{ maxHeight: "100vh" }} className='user-layout-wrap'>
             <Header >

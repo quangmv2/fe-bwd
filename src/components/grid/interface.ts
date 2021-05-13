@@ -84,5 +84,6 @@ export interface IHeaderDef {
     icon: string | ReactElement
     option: "default" | "single" | "muliti" | "disable"
     onCLick: (girdOption: GridOption) => void
+    hidden?: boolean
 }
 

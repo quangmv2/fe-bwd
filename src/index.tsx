@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './index.scss';
 import 'antd/dist/antd.css'
 import { AppRouters } from '@pages';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.scss';
 require('dotenv').config()
 
 

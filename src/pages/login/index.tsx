@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import styles from "./styles.module.scss";
-import "./index.css"
-import { Form, Input, notification } from 'antd';
+import { Form, Input, notification, Button } from 'antd';
 import { useAuth } from '@context';
 import { ACCESS_TOKEN, appPermisions, PREV_ROUTER } from '@constants';
-import { ButtonComponent } from '@components';
 import { ApolloError, gql, useLazyQuery, useMutation, useQuery } from '@apollo/client';
 import { useForm } from 'antd/lib/form/Form';
 import { GraphQLError } from 'graphql';
 import { mutateData, queryData } from 'src/tools/apollo/func';
 import { LOGIN } from 'src/graphql/mutation';
 import { ME } from 'src/graphql/query';
+import styles from "./styles.module.scss";
+import "./index.css"
 
 const layout = {
   labelCol: { span: 8 },
@@ -42,37 +41,38 @@ const LoginPage: React.FC<LoginPageProps> = () => {
   }, [isAuth, history]);
 
   const onFinish = (values: any) => {
-    // mutateData(LOGIN, {
-    //   info: values
-    // }).then(async ({ data, errors }) => {
-    //   if (errors || !data?.login?.token) {
-    //     notification.error({
-    //       message: "Đăng nhập thất bại",
-    //     })
-    //     return;
-    //   }
-    //   localStorage.setItem(ACCESS_TOKEN, data?.login?.token)
-    //   const me = await fetchMe();
-    //   console.log(me);
-    //   if (!me) throw new Error();
-    //   dispatchAuth({
-    //     type: "SET_AUTHEN",
-    //     payload: {
-    //       user: me,
-    //       isAuth: true
-    //     }
-    //   });
-    //   notification.success({
-    //     message: "Đăng nhập thành công",
-    //   })
-    // }).catch((error: ApolloError) => {
-    //   console.log(error.graphQLErrors);
-    //   error?.graphQLErrors.forEach(err => {
-    //     notification.error({
-    //       message: err?.message
-    //     })
-    //   })
-    // })
+    mutateData(LOGIN, {
+      info: values
+    }).then(async ({ data, errors }) => {
+      if (errors || !data?.login?.token) {
+        notification.error({
+          message: "Đăng nhập thất bại",
+        })
+        return;
+      }
+      localStorage.setItem(ACCESS_TOKEN, data?.login?.token)
+      const me = await fetchMe();
+      console.log(me);
+      if (!me) throw new Error();
+      dispatchAuth({
+        type: "SET_AUTHEN",
+        payload: {
+          user: me,
+          isAuth: true
+        }
+      });
+      notification.success({
+        message: "Đăng nhập thành công",
+      })
+    }).catch((error: ApolloError) => {
+      console.log(error.graphQLErrors);
+      error?.graphQLErrors.forEach(err => {
+        notification.error({
+          message: err?.message
+        })
+      })
+    })
+    return;
     localStorage.setItem(ACCESS_TOKEN, "token")
     // const me = await fetchMe();
     // console.log(me);
@@ -129,7 +129,7 @@ return (
     <div className={styles.loginForm}>
       <Link to="/"><h1>Login Page</h1></Link>
       <Form
-        {...layout}
+        // {...layout}
         name="basic"
         initialValues={{ remember: true }}
         onFinish={onFinish}
@@ -141,22 +141,21 @@ return (
           name="username"
           rules={[{ required: true, message: 'Please input your username!' }]}
         >
-          <Input className={styles.input} />
+          <Input  />
         </Form.Item>
 
         <Form.Item
           // label="Password"
           name="password"
-          className={styles.input}
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
-          <Input.Password className={styles.input} />
+          <Input.Password  />
         </Form.Item>
 
-        <Form.Item {...tailLayout}>
-          <ButtonComponent style={{ width: "100%" }} type="submit" >
-            Login
-            </ButtonComponent>
+        <Form.Item>
+          <Button htmlType='submit' type="primary" className="w-100 h-100 login-form-button">
+            Log in
+          </Button>
         </Form.Item>
       </Form>
     </div>
