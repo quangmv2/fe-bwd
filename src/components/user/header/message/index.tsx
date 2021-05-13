@@ -1,8 +1,7 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import styles from "./styles.module.scss";
-import logo from '@assets/icons/hopez-logo.png'
 import { Badge, Dropdown, Avatar } from 'antd'
-import { BellOutlined, MessageOutlined, SearchOutlined } from '@ant-design/icons';
+import { MessageOutlined } from '@ant-design/icons';
 import _ from 'lodash'
 import './styles.scss'
 interface notificationProps {

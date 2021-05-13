@@ -13,9 +13,6 @@ interface NewfeedPageProps {
 
 }
 
-
-
-
 const NewfeedPage: React.FC<NewfeedPageProps> = () => {
   const ROOT_CSS = css({
     height: 320,

@@ -8,7 +8,6 @@ import { useAuth } from '@context';
 import { ACCESS_TOKEN, TAB_ADMIN_MODE } from '@constants';
 import styles from "./auth.module.scss";
 import { uniq, inRange, indexOf } from "lodash";
-import { LoadingLazyComponent } from '../loading-page';
 import { mutateData } from 'src/tools/apollo/func';
 import { LOGOUT } from 'src/graphql/mutation';
 

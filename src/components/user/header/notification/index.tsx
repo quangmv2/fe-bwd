@@ -1,8 +1,7 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import styles from "./styles.module.scss";
-import logo from '@assets/icons/hopez-logo.png'
 import { Badge, Dropdown, Avatar } from 'antd'
-import { BellOutlined, SearchOutlined } from '@ant-design/icons';
+import { BellOutlined } from '@ant-design/icons';
 import './styles.scss'
 import _ from 'lodash'
 

@@ -3,22 +3,12 @@ import styles from "./styles.module.scss";
 import { woman1 } from "@assets"
 import _ from "lodash";
 import Avatar from 'antd/lib/avatar/avatar'
-import OwlCarousel from 'react-owl-carousel'
-// Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import './story-section.scss'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-//  import "./styles.css";
-
-
-// import Swiper core and required modules
-import SwiperCore, {
-    Pagination
-} from 'swiper/core';
 import { PlusOutlined } from '@ant-design/icons';
 
 

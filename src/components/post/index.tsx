@@ -1,10 +1,10 @@
-import { Avatar, Dropdown, Button } from 'antd';
-import React, { CSSProperties } from 'react';
+import { Avatar, Dropdown } from 'antd';
+import React from 'react';
 import { RiMoreFill } from 'react-icons/ri';
 import styles from "./styles.module.scss";
 import './styles.scss'
 import { woman1 } from '@assets'
-import { CommentOutlined, LikeOutlined, MessageOutlined, ShareAltOutlined } from '@ant-design/icons';
+import { LikeOutlined, MessageOutlined, ShareAltOutlined } from '@ant-design/icons';
 interface PostProps {
 
 }

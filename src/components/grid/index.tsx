@@ -1,10 +1,10 @@
-import Icon, { SearchOutlined, StepForwardOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import { Button, Col, Input, Pagination, Row, Space, Table, TableProps, Tooltip, } from 'antd';
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useReducer, useRef, useState } from 'react';
 import { GridApi } from './api';
 import { reducer } from './function';
 import "./index.scss"
-import { ColumnDef, GridProps, GridRefType, IPaginate, IStateGrid, IStateGridInput } from './interface';
+import { GridProps, GridRefType, IPaginate, IStateGrid, IStateGridInput } from './interface';
 import Highlighter from 'react-highlight-words';
 
 type Props<T> = GridProps<T> & TableProps<any>

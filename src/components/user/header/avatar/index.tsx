@@ -1,10 +1,10 @@
 import React, { CSSProperties } from 'react';
-import { Badge, Dropdown, Avatar } from 'antd'
+import { Dropdown, Avatar } from 'antd'
 
 import './styles.scss'
 
 interface avatarProps {
-
+    style?: CSSProperties
 }
 
 const AvatarComponent: React.FC<avatarProps> = ({

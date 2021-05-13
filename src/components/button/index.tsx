@@ -1,5 +1,4 @@
 import React, { CSSProperties, memo } from 'react';
-import { CloseOutlined } from '@ant-design/icons';
 import styles from "./styles.module.scss";
 
 interface buttonProps {

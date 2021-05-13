@@ -1,11 +1,8 @@
 import React from 'react';
 import styles from "./styles.module.scss";
-import logo from "@assets/icons/logo.png";
-import { Link } from "react-router-dom";
-import { useHeader } from '@utils';
 import './sider.scss'
-import { OutlineButton, ButtonComponent } from '@components'
-import { Avatar, Badge, Button, Menu } from 'antd';
+import { ButtonComponent } from '@components'
+import { Avatar, Badge, Menu } from 'antd';
 import { CloseOutlined, HomeOutlined, MailOutlined } from '@ant-design/icons';
 
 interface SiderComponentProps {

@@ -1,10 +1,8 @@
 import React, { lazy } from 'react';
 import {
-    // BrowserRouter as Router,
     Switch,
     Route,
-    useRouteMatch,
-    // useParams
+    useRouteMatch
 } from "react-router-dom";
 import { routersAuth } from "@routers";
 import { LayoutAuth } from 'src/components/layout';

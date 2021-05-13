@@ -2,8 +2,8 @@ import React from 'react';
 import indexStyles from "./index.module.scss";
 import { GoalItem, FunctionItem } from '@components';
 import { Row, Col, Form, Input, Button } from "antd";
-import { hug, mindset, sharing, underline, underline2, woman1, drugs, womanTogether } from '@assets'
-import { FacebookOutlined, PlayCircleFilled } from '@ant-design/icons'
+import { mindset, underline, drugs, womanTogether } from '@assets'
+import { PlayCircleFilled } from '@ant-design/icons'
 import './landing-page.scss'
 import _ from 'lodash'
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa"
@@ -59,17 +59,6 @@ const Landing: React.FC<LandingProps> = () => {
                 </Col>
                 <Col lg={15} md={0} sm={0} xs={0} className={`${indexStyles.sloganRight}`}>
                     <img className='w-100 h-100' src={mindset} />
-                    {/* <div className='position-relative'>
-                    <div className={` ${indexStyles.imageWrap}`} >
-                        <img className={` ${indexStyles.woman2Size}`} src={woman2} />
-                    </div>
-                    <div className={` ${indexStyles.imageWrap} `}>
-                        <img className={` ${indexStyles.woman1Size}`} src={woman1} />
-                    </div>
-                    <div className={` ${indexStyles.imageWrap}`}>
-                    <img className={` ${indexStyles.hugSize}`} src={hug} />
-                    </div>
-                    </div> */}
                 </Col>
             </Row>
             <section className={`${indexStyles.goalsContainer}`}>

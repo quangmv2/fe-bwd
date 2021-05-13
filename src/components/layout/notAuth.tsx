@@ -1,7 +1,6 @@
 import { Skeleton } from 'antd';
 import React, { Suspense, useEffect } from 'react';
 import { HeaderComponent } from '../header';
-import { LoadingLazyComponent } from '../loading-page';
 
 interface LayoutNotAuthProps {
     noHeader?: boolean,

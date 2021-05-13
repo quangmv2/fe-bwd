@@ -1,6 +1,6 @@
-import { CameraOutlined, CloseOutlined, HeartOutlined, LinkOutlined, MoreOutlined } from '@ant-design/icons';
+import { CameraOutlined, HeartOutlined } from '@ant-design/icons';
 import { Avatar, Input, Row, Col } from 'antd';
-import React, { CSSProperties, useState } from 'react';
+import React from 'react';
 import styles from "./styles.module.scss";
 import { ButtonComponent } from '@components'
 import './add-post.scss'
