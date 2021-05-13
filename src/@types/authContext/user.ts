@@ -2,7 +2,7 @@ import { TAppPermission } from "../prermission";
 
 export type TUser  = {
     username: string,
-    fullname: string,
+    fullName: string,
     email?: string,
     address?: string, 
     pictureUrl?: string,

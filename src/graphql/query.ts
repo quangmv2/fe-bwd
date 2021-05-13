@@ -22,7 +22,6 @@ query {
     }
   }
 }
-
 `
 
 export const USERS = gql`
@@ -41,6 +40,7 @@ query {
       description
     }
     permissions
+    isActive
     createdAt
     createdBy {
       _id

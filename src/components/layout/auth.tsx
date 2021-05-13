@@ -10,6 +10,7 @@ import styles from "./auth.module.scss";
 import { uniq, inRange, indexOf } from "lodash";
 import { mutateData } from 'src/tools/apollo/func';
 import { LOGOUT } from 'src/graphql/mutation';
+import './index.scss'
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -72,7 +73,7 @@ const LayoutAuth: React.FC<LayoutAuthProps> = ({
     }
 
     return (
-        <Layout style={{ maxHeight: "100vh" }}>
+        <Layout style={{ maxHeight: "100vh" }} className='conteiner-user-page'>
             <Header className="header" style={{ height: "64px" }}>
                 <div className="logo">
                     <Link to="/">

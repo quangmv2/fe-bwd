@@ -190,7 +190,7 @@ const Grid = forwardRef<GridRefType, Props<any>>(({
                 </Col>
                 <Col className="qt-grid-header-action">
                     {
-                        headerDefs.map((header, index) => (
+                        headerDefs.map((header, index) => header.hidden ? '' :(
                             <Tooltip title={header.label} key={index} >
 
                                 <Button className="qt-grid-header-button"
@@ -203,7 +203,7 @@ const Grid = forwardRef<GridRefType, Props<any>>(({
                                         api,
                                         grid: {
                                             state,
-                                            selectedRows: []
+                                            selectedRows: state.selectedRows
                                         }
                                     })}
                                 >

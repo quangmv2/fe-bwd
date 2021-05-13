@@ -13,6 +13,7 @@ import { LayoutNotAuth } from 'src/components/layout';
 import { indexOf } from "lodash";
 import { ME } from 'src/graphql/query';
 import { queryData } from 'src/tools/apollo/func';
+import { checkPermission } from '@common';
 
 const Components = {}
 
@@ -34,24 +35,27 @@ const AppRouters: React.FC<AppProps> = (props) => {
   }, [dispatchAuth])
 
   const verifyAuth = async () => {
-    // const token = localStorage.getItem(ACCESS_TOKEN);
-    // if (!token) {
-    //   setLoging(false);
-    //   return
-    // };
-    // const me = await fetchMe();
-    // if (!me) {
-    //   setLoging(false);
-    //   return
-    // }
-    // dispatchAuth({
-    //   type: "SET_AUTHEN",
-    //   payload: {
-    //     isAuth: true,
-    //     user: me
-    //   }
-    // })
-    const me: any = {
+    const token = localStorage.getItem(ACCESS_TOKEN);
+    if (!token) {
+      setLoging(false);
+      return
+    };
+    const me = await fetchMe();
+    if (!me) {
+      setLoging(false);
+      return
+    }
+    dispatchAuth({
+      type: "SET_AUTHEN",
+      payload: {
+        isAuth: true,
+        user: me
+      }
+    })
+    setLoging(false);
+
+    return;
+    const meLocal: any = {
       _id: "6084f501e817a7502ea9bb93",
       username: "appadmin",
       email: "admin@gmail.com",
@@ -74,15 +78,14 @@ const AppRouters: React.FC<AppProps> = (props) => {
       createdAt: 1619326209272,
       createdBy: null
     }
-    if (!me) throw new Error();
+    if (!meLocal) throw new Error();
     dispatchAuth({
       type: "SET_AUTHEN",
       payload: {
-        user: me,
+        user: meLocal,
         isAuth: true
       }
     });
-    setLoging(false);
   }
 
   const fetchMe = async () => {
@@ -121,7 +124,7 @@ const AppRouters: React.FC<AppProps> = (props) => {
                 path="/admin"
                 key="/admin page"
                 render={routeProps => {
-                  if (isAuth && user && indexOf(user.permissions, appPermisions.ADMIN_PAGE) !== -1)
+                  if (isAuth && user && checkPermission(user?.permissions || [], appPermisions.ADMIN_PAGE))
                     return <AppAuth {...props} {...routeProps} />
                   localStorage.setItem("PREV_ROUTER", "/admin")
                   return <Redirect to="/login?auth=true" />

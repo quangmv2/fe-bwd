@@ -17,7 +17,6 @@ const LayoutNotAuth: React.FC<LayoutNotAuthProps> = ({
     }, [])
 
     return (
-
         <div>
             <HeaderComponent visible={ noHeader ? false : true }/>
             <Suspense fallback={<Skeleton active />}>
