@@ -18,3 +18,29 @@ mutation createUser($input: GUserInput!){
     }
   }
 `
+
+export const UPDATE_USER = gql`
+mutation updateUser($input: GUserInput!, $id: ID!){
+  updateUser(input: $input, id: $id) {
+    _id
+    username
+    firstName
+    lastName
+    email
+    isActive
+    createdBy {
+      _id
+      username
+      fullName
+    }
+  }
+}
+`
+
+export const REMOVE_USERS = gql`
+mutation removeUsers($ids: [ID!]){
+  removeUsers(ids: $ids) {
+    _id
+  }
+}
+`

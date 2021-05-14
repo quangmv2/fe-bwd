@@ -6,6 +6,10 @@ export class GridApi<T = any> implements IGridApi {
     public setState: (stateInput: IStateGridInput) => void
     public getState: () => IStateGrid
     public typeRender: "serverSide" | "clientSide"
+    unSelectRows(ids: string[]){
+        
+    }
+
 
     constructor() {
         this.dataSource = {
@@ -18,6 +22,7 @@ export class GridApi<T = any> implements IGridApi {
         this.typeRender = "clientSide"
     }
 
+    
     setDataSource(dataSource?: IDatasource) {
         if (dataSource) this.dataSource = dataSource
         this?.dataSource?.loadRow({

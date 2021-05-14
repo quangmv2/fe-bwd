@@ -54,11 +54,11 @@ export interface IGridApi {
     refetch: () => void
     setState: (stateInput: IStateGridInput) => void
     setDataSource: (datasource: IDatasource) => void
+    unSelectRows: (ids: string[]) => void
     // setSelectRow: (id: string) => void
     // setSelectRows: (ids: string[]) => void
     // setSelectAllRow: () => void
     // unSelectRow: (id: string) => void
-    // unSelectRows: (ids: string[]) => void
 }
 
 export interface IStateGrid {
