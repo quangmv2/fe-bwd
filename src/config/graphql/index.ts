@@ -34,7 +34,7 @@ const wsLink = new WebSocketLink({
 const authLink = setContext((_, { headers }) => ({
     headers: {
         ...headers,
-        [ACCESS_TOKEN]:
+        'access-token':
             localStorage.getItem(ACCESS_TOKEN) || ''
     }
 }))

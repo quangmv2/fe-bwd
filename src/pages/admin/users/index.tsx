@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import styles from "./styles.module.scss";
-import { queryData } from 'src/tools/apollo/func';
+import { mutateData, queryData } from 'src/tools/apollo/func';
 import { USERS } from "src/graphql/query";
-import { Checkbox } from 'antd';
+import { Checkbox, notification } from 'antd';
 import Grid from 'src/components/grid';
 import { ColumnDef, GridOption, IDatasource, IGridApi, IHeaderDef } from 'src/components/grid/interface';
 import { EditOutlined, PlusOutlined, DeleteOutlined, ReloadOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
@@ -11,6 +11,7 @@ import confirm from 'antd/lib/modal/confirm';
 import { useAuth } from '@context';
 import { appPermisions } from '@constants';
 import { checkPermission } from '@common';
+import { REMOVE_USERS } from 'src/graphql/admin.user';
 
 
 const columns: ColumnDef<any> = [
@@ -149,26 +150,40 @@ const AdminUsersPage: React.FC<AdminUsersPageProps> = ({
         icon: <DeleteOutlined />,
         option: "muliti",
         onCLick: (gridOption: GridOption) => {
-          console.log(gridOption.grid.state.selectedRows);
-          showConfirm()
+          // console.log(gridOption.grid.state.selectedRows);
+          showConfirm(gridOption.grid.state.selectedRows)
         },
         hidden: !checkPermission(user?.permissions || [], appPermisions.USER_DELETE)
       }
     ]
   ), [])
 
-  const showConfirm = () => {
+  const showConfirm = (rows: any[]) => {
     confirm({
       title: 'Do you Want to delete these items?',
       icon: <ExclamationCircleOutlined />,
       content: 'Some descriptions',
       onOk() {
-        console.log('OK');
+        deleteMore(rows?.map(r => r?._id))
       },
       onCancel() {
         console.log('Cancel');
       },
     });
+  }
+
+  const deleteMore = (ids: string[]) => {
+    mutateData(REMOVE_USERS, {
+      ids
+    }).then(() => {
+      notification.success({
+        message: "Xóa thành công!",
+      })
+      gridApi.current.unSelectRows(ids)
+      loadData()
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   return (

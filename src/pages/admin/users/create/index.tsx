@@ -1,10 +1,10 @@
-import { Checkbox, Form, Input, Modal } from 'antd';
+import { Checkbox, Form, Input, Modal, notification } from 'antd';
 import React, { forwardRef, useCallback, useImperativeHandle, useState } from 'react';
 import { arrFI } from './common';
 import { patternRule } from '@common'
 import { useForm } from 'antd/lib/form/Form';
 import { mutateData } from 'src/tools/apollo/func';
-import { CREATE_USER } from 'src/graphql/admin.user';
+import { CREATE_USER, UPDATE_USER } from 'src/graphql/admin.user';
 import { ApolloError } from '@apollo/client';
 // import styles from "./styles.module.scss";
 
@@ -37,8 +37,6 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
     }))
 
     const handleOpen = useCallback((row?: any) => {
-        console.log(row);
-
         if (row) {
             setSelectRow(row)
             form.setFieldsValue(row)
@@ -51,6 +49,7 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
 
     const handleClose = useCallback(() => {
         setShowModal(false);
+        setSelectRow(null)
     }, [])
 
     const handleSubmit = useCallback(() => {
@@ -60,12 +59,16 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
     }, [form])
 
     const submit = useCallback((values: any) => {
-        mutateData(CREATE_USER, {
-            input: values
+        mutateData(selectRow ? UPDATE_USER : CREATE_USER, {
+            input: values,
+            id: selectRow?._id
         }).then(({ data, errors }) => {
             reload && reload()
             handleClose()
             form.resetFields()
+            notification.success({
+                message: `${selectRow ? 'Cập nhật' : 'Thêm mới'} thành công`
+            })
         }).catch((err: ApolloError) => {
             if (err.message.includes("username is exists")) {
                 form.setFields([{
@@ -75,8 +78,7 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
             }
             console.log(err);
         })
-    }, [form])
-
+    }, [form, selectRow])
     return (
         <div>
             <Modal
@@ -86,7 +88,7 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
                 onOk={handleSubmit}
                 okText="Lưu"
                 cancelText="Đóng"
-                title={"Thêm mới người dùng"}
+                title={selectRow?.username || 'Thêm mới người dùng'}
             >
                 <Form
                     {...layout}
@@ -94,7 +96,6 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
                     form={form}
                 >
                     {arrFI.map((FI, key) => {
-
                         if (FI.type === "checkbox") {
                             return (
                                 <Form.Item
@@ -110,14 +111,14 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
                             )
                         }
                         if (FI.name === 'password') {
-                            <Form.Item
+                            return (<Form.Item
                                 key={key}
                                 label={FI.label}
                                 name={FI.name}
-                                rules={FI.require ? [patternRule.required(`${FI.label} Là bắt buộc`)] : []}
+                                rules={(FI.require && !selectRow) ? [patternRule.required(`${FI.label} Là bắt buộc`)] : []}
                             >
                                 <Input.Password placeholder={`Nhập ${FI.label?.toLowerCase()}`} />
-                            </Form.Item>
+                            </Form.Item>)
                         }
                         return (
                             <Form.Item
@@ -125,7 +126,6 @@ const AdminUsersPage = forwardRef<RefFormUser, AdminUsersPageProps>(({
                                 label={FI.label}
                                 name={FI.name}
                                 rules={FI.require ? [patternRule.required(`${FI.label} Là bắt buộc`)] : []}
-
                             >
                                 <Input
                                     placeholder={`Nhập ${FI.label?.toLowerCase()}`}

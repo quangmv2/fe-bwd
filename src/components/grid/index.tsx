@@ -6,6 +6,8 @@ import { reducer } from './function';
 import "./index.scss"
 import { GridProps, GridRefType, IPaginate, IStateGrid, IStateGridInput } from './interface';
 import Highlighter from 'react-highlight-words';
+import { difference, differenceBy } from 'lodash';
+import { stat } from 'fs';
 
 type Props<T> = GridProps<T> & TableProps<any>
 
@@ -55,6 +57,7 @@ const Grid = forwardRef<GridRefType, Props<any>>(({
             }
         })
         api.setState = setState
+        api.unSelectRows = unSelectRows
     }, [])
 
     useEffect(() => {
@@ -75,13 +78,21 @@ const Grid = forwardRef<GridRefType, Props<any>>(({
         })
     }, [])
 
+    const unSelectRows = useCallback((ids: string[]) => {
+        const newSelect = (state.selectedRowKeys, ids);
+        const newRows = differenceBy(state.selectedRows, ids.map(i => ({ _id: i })), '_id')
+        setState({
+            selectedRowKeys: newSelect,
+            selectedRows: newRows
+        })
+    }, [state])
+
     const changePage = (page, pageSize) => {
         setStatePaginate({
             currentPage: page,
             sizePage: pageSize
         })
     }
-
 
     const getColumnSearchProps = (dataIndex: string) => ({
         filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
@@ -250,6 +261,8 @@ const Grid = forwardRef<GridRefType, Props<any>>(({
                     onSelectNone,
                     selectedRowKeys: state.selectedRowKeys,
                     onChange: (selectRowsKeys, selectedRows) => {
+                        console.log(selectRowsKeys, selectedRows);
+                        
                         setState({
                             selectedRows: selectedRows,
                             selectedRowKeys: selectRowsKeys
