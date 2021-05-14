@@ -2,11 +2,11 @@ import { appPermisions } from "@constants"
 import { IMenuRouter, IRouter } from "@type"
 
 const routersNotAuth: IRouter[] = [
-    {
-        exact: true,
-        path: '/',
-        component: 'landing-page'
-    },
+    // {
+    //     exact: true,
+    //     path: '/',
+    //     component: 'landing-page'
+    // },
     {
         exact: true,
         path: '/landing-page',
@@ -29,7 +29,13 @@ const routersNotAuth: IRouter[] = [
         path: '/home',
         component: 'user',
         noHeader: true
-    }
+    },
+    // {
+    //     exact: true,
+    //     path: '*',
+    //     component: '404',
+    //     noHeader: true
+    // },
 ]
 
 const routersUser: IRouter[] = [

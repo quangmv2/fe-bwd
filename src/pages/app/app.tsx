@@ -14,6 +14,7 @@ import { indexOf } from "lodash";
 import { ME } from 'src/graphql/query';
 import { queryData } from 'src/tools/apollo/func';
 import { checkPermission } from '@common';
+import Landing from '../landing-page';
 
 const Components = {}
 
@@ -111,15 +112,7 @@ const AppRouters: React.FC<AppProps> = (props) => {
 
           >
             <Switch>
-              <Route
-                path="/user"
-                key="/user page"
-                render={routeProps => {
-                  if (isAuth && user)
-                    return <AppUser {...props} {...routeProps} />
-                  return <Redirect to="/login" />
-                }}
-              />
+
               <Route
                 path="/admin"
                 key="/admin page"
@@ -145,6 +138,22 @@ const AppRouters: React.FC<AppProps> = (props) => {
                   />
                 ))
               }
+              <Route
+                path="/"
+                key="/user page"
+                render={routeProps => {
+                  if (isAuth && user)
+                    return <AppUser {...props} {...routeProps} />
+                  return <LayoutNotAuth >
+                    <Landing />
+                  </LayoutNotAuth>
+                }}
+              />
+              <Route
+                path='*'
+                render={() => 404}
+              />
+
             </Switch>
           </Router>
       }
