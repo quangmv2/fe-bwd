@@ -3,7 +3,7 @@ import React from 'react';
 import { HeaderProvider } from 'src/utils';
 import AppRouters from './app';
 import { ApolloProvider } from '@apollo/client'
-import { client } from '@tools';
+import { client } from '@config';
 
 interface AppProps {
 

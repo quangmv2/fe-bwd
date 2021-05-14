@@ -1,6 +1,6 @@
-import { Skeleton } from 'antd';
 import React, { Suspense, useEffect } from 'react';
 import { HeaderComponent } from '../header';
+import { LoadingLazyComponent } from '../loading-page';
 
 interface LayoutNotAuthProps {
     noHeader?: boolean,
@@ -19,7 +19,7 @@ const LayoutNotAuth: React.FC<LayoutNotAuthProps> = ({
     return (
         <div>
             <HeaderComponent visible={ noHeader ? false : true }/>
-            <Suspense fallback={<Skeleton active />}>
+            <Suspense fallback={<LoadingLazyComponent />}>
                 {children}
             </Suspense>
         </div>

@@ -57,7 +57,7 @@ const Landing: React.FC<LandingProps> = () => {
                     <img src={underline} />
                     <p className={`pt-4 ${indexStyles.sloganBody}`}>Without in-depth technology, business may find it hard to maintain effective management. HopEZ is a conference web-based solution to allow businesses, teams and schools/university to approach no-barriers conversation including online conference, online classes or webinars which are supported by varied powerful functionalities.</p>
                     <button className={`btn text-white mt-4 py-2 ${indexStyles.swuButton}`}
-                        onClick={() => history.push('/user')}
+                        onClick={() => history.push('/login')}
                     >Try now</button>
                     </div>
                 </Col>
