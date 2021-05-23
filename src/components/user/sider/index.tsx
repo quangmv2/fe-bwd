@@ -4,6 +4,7 @@ import './sider.scss'
 import { ButtonComponent } from '@components'
 import { Avatar, Badge, Menu } from 'antd';
 import { CloseOutlined, HomeOutlined, MailOutlined } from '@ant-design/icons';
+import { useAuth } from '@context';
 
 interface SiderComponentProps {
 
@@ -11,39 +12,17 @@ interface SiderComponentProps {
 
 const SiderComponent: React.FC<SiderComponentProps> = () => {
 
-    // const { visible: visibleHook } = useHeader();
-    // const pages = [
-    //     {
-    //         link: "try-on",
-    //         title: "Try on"
-    //     },
-    //     {
-    //         link: "webinar",
-    //         title: "Webinar"
-    //     },
-    //     {
-    //         link: "register",
-    //         title: "Register"
-    //     },
-    //     {
-    //         link: "login",
-    //         title: "Login"
-    //     },
-    //     {
-    //         link: "admin",
-    //         title: "Admin"
-    //     },
-    // ]
-
+    const { user } = useAuth()
+  
     return (
         <div className={` user-sider-wrap ${styles.container}`}>
             {/* user name */}
             <section className='py-4 px-3'>
                 <div className={` ${styles.userNameWrap}  shadow-css d-flex align-items-center bg-white p-4`}>
-                    <Avatar shape="square" size={40} className='border-radius-12'>N</Avatar>
+                    <Avatar shape="square" size={40} className='border-radius-12'>A</Avatar>
                     <div className='px-3'>
-                        <p className={`m-0 ${styles.name}`}>Quỳnh Nga</p>
-                        <p className={`m-0 text-muted ${styles.username}`}>@qnne</p>
+                        <p className={`m-0 ${styles.name}`}>{ user.fullName }</p>
+                        <p className={`m-0 text-muted ${styles.username}`}>@{user.username}</p>
                     </div>
                 </div>
             </section>

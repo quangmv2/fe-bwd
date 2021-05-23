@@ -1,5 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import styles from "./styles.module.scss";
+import { Skeleton } from 'antd'
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
@@ -17,9 +18,7 @@ const LoadingLazyComponent: React.FC<LoadingLazyComponentProps> = memo((props) =
 
     return (
         <div className={styles.loading}>
-            <div className={styles.loader}>
-
-            </div>
+            <Skeleton active />
         </div>
     );
 })

@@ -8,6 +8,7 @@ import Message from './message'
 import Avatar from './avatar'
 import './styles.scss'
 import SiderComponent from '../sider';
+import { Link } from 'react-router-dom';
 
 
 interface headerProps {
@@ -35,7 +36,7 @@ const HeaderComponent: React.FC<headerProps> = ({
                 <SiderComponent />
             </Drawer>
             <div className={` ${styles.logoContainer} d-flex align-items-center'`} style={{ height: '70px' }}>
-                <img className=' h-100' src={logo} />
+                <Link to='/'><img className=' h-100' src={logo} /></Link>
                 {/* <p className='m-0'>hearMe</p> */}
             </div>
             <div className={` ${styles.headerLeftWrap} d-flex align-items-baseline justify-content-between `}>

@@ -1,5 +1,10 @@
 .container {
     display: flex;
+
+    a {
+        text-decoration: none;
+    }
+
 }
 
 // .ant-menu-item .ant-menu-item-only-child {

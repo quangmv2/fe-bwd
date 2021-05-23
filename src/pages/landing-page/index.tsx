@@ -7,6 +7,7 @@ import { PlayCircleFilled } from '@ant-design/icons'
 import './landing-page.scss'
 import _ from 'lodash'
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa"
+import { useHistory } from 'react-router-dom';
 
 
 interface LandingProps {
@@ -14,6 +15,9 @@ interface LandingProps {
 }
 
 const Landing: React.FC<LandingProps> = () => {
+
+    const history = useHistory()
+
     const funtionItem = [
         {
             title: 'qqq'
@@ -51,10 +55,10 @@ const Landing: React.FC<LandingProps> = () => {
                     <div>
                     <p className={indexStyles.sloganContent}>Cutting edge technology building the best online conference solution</p>
                     <img src={underline} />
-                    <p className='text-gray-600'>hello test</p>
-                    <p className='text-blue-300'>hello test</p>
                     <p className={`pt-4 ${indexStyles.sloganBody}`}>Without in-depth technology, business may find it hard to maintain effective management. HopEZ is a conference web-based solution to allow businesses, teams and schools/university to approach no-barriers conversation including online conference, online classes or webinars which are supported by varied powerful functionalities.</p>
-                    <button className={`btn text-white mt-4 py-2 ${indexStyles.swuButton}`}>Share with us</button>
+                    <button className={`btn text-white mt-4 py-2 ${indexStyles.swuButton}`}
+                        onClick={() => history.push('/login')}
+                    >Try now</button>
                     </div>
                 </Col>
                 <Col lg={15} md={0} sm={0} xs={0} className={`${indexStyles.sloganRight}`}>
