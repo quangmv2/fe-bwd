@@ -6,7 +6,8 @@ export interface IRouter {
     component: string,
     noHeader?: boolean,
     option?: any,
-    permission?: TAppPermission
+    permission?: TAppPermission,
+    title?: string
 }
 
 export interface IMenuRouter {

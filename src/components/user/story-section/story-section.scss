@@ -15,19 +15,23 @@
 //     -webkit-transform: translate3d(0,0,0);
 // }
 
-    
-   
-    
+
+
+
 // }
-@import '../../assets/styles/color';
+@import '../../../assets/styles/color';
+
 .story-container {
+  
     .ant-avatar {
         border-radius: 12px;
-       
+
     }
+
     p {
         font-weight: 700;
     }
+
     .icon-wrap {
         .anticon {
             font-size: 14px;
@@ -35,22 +39,4 @@
 
         }
     }
-}
-.owl-carousel {
-            overflow: hidden;
-            width: 100%;
-        z-index: 1;
-        }
-        .owl-carousel {
-            display: none;
-            width: 100%;
-            z-index: 1;
-        }
-.owl-stage {
-    overflow: hidden;
-    // width: 928px !important
-}
-.owl-item {
-    width: auto !important;
-    margin-left: 7px;
 }

@@ -4,7 +4,9 @@ import { RiMoreFill } from 'react-icons/ri';
 import styles from "./styles.module.scss";
 import './styles.scss'
 import { woman1 } from '@assets'
-import { LikeOutlined, MessageOutlined, ShareAltOutlined } from '@ant-design/icons';
+import { LikeOutlined, MessageOutlined, ShareAltOutlined } from '@ant-design/icons'
+
+
 interface PostProps {
 
 }
@@ -17,8 +19,10 @@ const PostComponent: React.FC<PostProps> = ({
             <div>heo</div>
         )
     }
+   
+
     return (
-        <div className={` post-wrap ${styles.wrap}`}>
+        <div className={` post-wrap ${styles.wrap} `}>
             <div className='bg-white border-radius-12 p-3 shadow-css'>
                 <div className='align-items-center d-flex justify-content-between'>
                     <div className='d-flex align-items-center'>
@@ -38,29 +42,31 @@ const PostComponent: React.FC<PostProps> = ({
                 <div className={`pt-3 ${styles.content}`}>
                     <p className='text-justify'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam ipsam qui doloribus? Deserunt doloribus voluptate veritatis provident voluptates voluptas, in nesciunt soluta iure pariatur alias laborum cum, corporis consectetur ad dignissimos officia incidunt. Maiores, dolorem nemo delectus animi blanditiis incidunt doloremque, asperiores ut exercitationem ex sit illo esse sed tempore.</p>
                     <div className={` border-radius-12 ${styles.imageContainer}`}>
-                        <img className='w-100 border-radius-12' src={woman1}/>
+                   
+                        {/* <img className='w-100 border-radius-12' src={woman1}/> */}
                     </div>
                 </div>
                 <div className={`d-flex align-items-baseline justify-content-between mt-3 ${styles.reactSection}`}>
-                <div className='d-flex align-items-end'>
-                    <div className='hover-pointer d-flex align-items-end'>
-                        <div className={`d-flex justify-content-center align-items-center rounded-circle ${styles.likeIconContainer}`}>
-                            <LikeOutlined style={{fontSize: '17px', color: 'white'}}/>
+                    <div className='d-flex align-items-end'>
+                        <div className='hover-pointer d-flex align-items-end'>
+                            <div className={`d-flex justify-content-center align-items-center rounded-circle ${styles.likeIconContainer}`}>
+                                <LikeOutlined style={{ fontSize: '17px', color: 'white' }} />
+                            </div>
+                            <span className='text-capitalize m-0'>2.8K like</span>
                         </div>
-                        <span className='text-capitalize m-0'>2.8K like</span>
+                        <div className=' hover-pointer d-flex align-items-end mx-3'>
+                            <MessageOutlined style={{ fontSize: '22px' }} />
+                            <span className='text-capitalize m-0'>22 comments</span>
+                        </div>
                     </div>
-                    <div className=' hover-pointer d-flex align-items-end mx-3'>
-                            <MessageOutlined  style={{fontSize: '22px'}}/>
-                        <span className='text-capitalize m-0'>22 comments</span>
+                    <div className='hover-pointer d-flex align-items-center'>
+                        <ShareAltOutlined style={{ fontSize: '24px' }} />
+                        <span className=''>Share</span>
                     </div>
-                </div>
-                <div className='hover-pointer d-flex align-items-center'>
-                    <ShareAltOutlined style={{fontSize: '24px'}}/>
-                    <span className=''>Share</span>
-                </div>
                 </div>
             </div>
         </div>
+
     );
 }
 

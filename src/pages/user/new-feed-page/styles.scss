@@ -1,41 +1,13 @@
-@import '../../../assets/styles/color';
-.quick-chat-wrap {
-    .ant-avatar {
-        border-radius: 12px;
+.newfeed-page-wrap {
+    .ant-layout-sider {
+        min-width: 320px !important;
     }
-    .ant-input-affix-wrapper {
-        background: #f7fafb;
-        border-radius: 12px;
-        height: 40px;
-        margin-top: 1rem;
-       .anticon {
-           color: $text-bold-color
-       }
-        .ant-input {
-            font-weight: 700;
-            padding-left: .5rem;
+    .site-layout {
+        background: #f7fafb !important;
+    }
+    @media (max-width: 992px) {
+        .site-layout {
+            margin-right: 0 !important;
         }
-    }
-    
-}
-.friend-list-wrap {
-    .contact-item-wrap {
-        .ant-badge-count {
-            background-color: red;
-            p {
-                font-weight: 600 !important;
-                color: white
-            }
-        }
-    }
-    .ant-badge-count {
-        background-color: $grey-color;
-        p {
-            color: white;
-            font-weight: 600 !important;
-        }
-    }
-    .ant-avatar {
-        border-radius: 12px;
     }
 }

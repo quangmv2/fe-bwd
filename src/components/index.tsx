@@ -3,10 +3,12 @@ import GoalItem from './goalitems'
 import FunctionItem from './function-item'
 import SiderComponent from './user/sider'
 import OutlineButton from './outline-button'
-import StorySection from './story-section'
+import StorySection from './user/story-section'
 import AddPost from './add-post'
 import Post from './post'
 import HeaderComponent from './user/header'
+import ContactSidebar from './user/contact-sidebar'
+import BottomNavigation from './user/botttom-navigation'
 
 export {
     ButtonComponent,
@@ -17,9 +19,12 @@ export {
     StorySection,
     AddPost,
     Post,
-    HeaderComponent
+    HeaderComponent,
+    ContactSidebar,
+    BottomNavigation
 }
 
+export * from './layout'
 export * from './header'
 export * from './loading-page'
 export * from './beep-loader'

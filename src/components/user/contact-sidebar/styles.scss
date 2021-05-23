@@ -1,0 +1,21 @@
+@import '../../../assets/styles/color';
+.quick-chat-wrap {
+    .ant-avatar {
+        border-radius: 12px;
+    }
+    .ant-input-affix-wrapper {
+        background: #f7fafb;
+        border-radius: 12px;
+        height: 40px;
+        margin-top: 1rem;
+       .anticon {
+           color: $text-bold-color
+       }
+        .ant-input {
+            font-weight: 700;
+            padding-left: .5rem;
+        }
+    }
+    
+}
+

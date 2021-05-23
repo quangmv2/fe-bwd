@@ -35,3 +35,13 @@
     //     -webkit-transform: translate3d(0,0,0);
     // }
 }
+.wrap {
+    // overflow: hidden;
+    max-width: 100% !important;
+   
+}
+@media (max-width: 991px) {
+      .wrap {
+          width: calc(100vw - 3rem)
+      }  
+}

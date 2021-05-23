@@ -1,0 +1,13 @@
+@import '../../../assets/styles/color';
+
+.wrap {
+    background: #f7fafb;
+    height: 100vh;
+
+    .title {
+        color: $text-bold-color;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+}
