@@ -26,7 +26,7 @@ const App: React.FC<AppProps> = () => {
   }, [])
 
   return (
-    <ApolloProvider ={client}>
+    <ApolloProvider client={client}>
       <StoreContextProvider>
         <HeaderProvider>
           <AppRouters />
