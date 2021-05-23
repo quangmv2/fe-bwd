@@ -36,9 +36,17 @@ const routersUser: IRouter[] = [
     {
         exact: true,
         path: '/',
-        component: 'user/new-feed-page'
+        component: 'user/new-feed-page',
+        title: 'new feed'
+        
+    },
+    {
+        exact: true,
+        path: '/psychologist',
+        component: 'user/psychologist-list'
     },
 ]
+
 
 const routersAuth: IRouter[] = [
     {

@@ -1,4 +1,6 @@
 .user-layout-wrap {
+    background: #f7fafb;
+  
     .ant-layout-sider {
         background: #f7fafb;
         min-width: 285px !important;
@@ -10,10 +12,14 @@
 
     }
 
-    @media (max-width: 991px) {
+    @media (max-width: 992px) {
         .ant-layout-sider {
             background: #f7fafb;
             display: none;
+            // min-width: 0px;
+        }
+        .site-layout-background {
+        margin-left: 0px !important;
         }
     }
 }

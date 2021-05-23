@@ -1,0 +1,25 @@
+@import '../../../../assets/styles/color';
+.friend-list-wrap {
+    .contact-item-wrap {
+        .ant-badge-count {
+            background-color: red;
+            border-radius: 9px;
+            p {
+                font-weight: 600 !important;
+                color: white
+            }
+        }
+    }
+    .ant-badge-count {
+        border-radius: 9px;
+        background-color: $grey-color;
+        p {
+            font-weight: 600 !important;
+            color: white;
+            
+        }
+    }
+    .ant-avatar {
+        border-radius: 12px;
+    }
+}

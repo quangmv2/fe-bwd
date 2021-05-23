@@ -94,7 +94,7 @@ const StorySection: React.FC<storySectionProps> = ({
     const Story = () => {
         return _.map(story, ({ name, avatar }) => {
             return (
-                <SwiperSlide className={`${styles.storyContainer} border-radius-12 `} style={{ backgroundImage: `url(${woman1})` }} >
+                <SwiperSlide className={`${styles.storyContainer} hover-pointer border-radius-12 `} style={{ backgroundImage: `url(${woman1})` }} >
                     {/* <img className='w-100 h-100 border-radius-12 position-relative' src={woman1} /> */}
                     <div className='d-block  '>
                         <div className={`border-radius-12 position-absolute ${styles.avatarContainer}`}>
@@ -112,14 +112,7 @@ const StorySection: React.FC<storySectionProps> = ({
 
 
     return (
-        <div style={{ maxHeight: '200px' }}>
-            {/*        
-    <Swiper slidesPerView={3} spaceBetween={30} freeMode={true} pagination={{
-  "clickable": true
-}} className="mySwiper">
-  {Story()}
-  </Swiper> */}
-
+   <div className={styles.wrap}>
             <Swiper 
              breakpoints={{
                 1024: {
@@ -143,11 +136,11 @@ const StorySection: React.FC<storySectionProps> = ({
                     slidesPerView: 6,
                   },
               }}
-            
-            className={`story-container ${styles.container} `}  spaceBetween={10} freeMode={true} pagination={{
+          
+            className={`story-container  ${styles.container}`}  spaceBetween={10} freeMode={true} pagination={{
                 "clickable": true
             }} >
-                <SwiperSlide className={`${styles.storyContainer} border-radius-12`}
+                <SwiperSlide className={`${styles.storyContainer} hover-pointer border-radius-12`}
                     style={{ backgroundImage: `url(${woman1})` }}
                 >
                     <div className='card-body d-block  w-100 position-absolute bottom-0 text-center justify-content-center d-flex flex-column align-items-center'>

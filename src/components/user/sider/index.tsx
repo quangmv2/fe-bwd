@@ -49,14 +49,45 @@ const SiderComponent: React.FC<SiderComponentProps> = () => {
             </section>
             {/* SIDER-MENU */}
             <section className='px-3'>
-                <Menu className='border-radius-12 p-4 shadow-css'>
-                    <Menu.Item key="1" icon={<HomeOutlined />}>
-                     Home </Menu.Item>
-                    <Menu.Item icon={<MailOutlined />}>People</Menu.Item>
-                    <Menu.Item icon={<MailOutlined />}>Doctor</Menu.Item>
-                    <Menu.Item icon={<MailOutlined />}>Menu</Menu.Item>
-                    <Menu.Item icon={<MailOutlined />}>Menu</Menu.Item>
-                    <Menu.Item icon={<MailOutlined />}>Menu</Menu.Item>
+                
+                <Menu className='border-radius-12 py-4 shadow-css'>
+                    <Menu.Item key="1" className='h-100' >
+                    <div className='h-100 py-1 d-flex align-items-center menu-content'>
+                    <HomeOutlined />
+                    <span>Home</span>
+                    </div>
+                     </Menu.Item>
+                     <Menu.Item key="2" className='h-100' >
+                    <div className='h-100 py-1 d-flex align-items-center menu-content'>
+                    <HomeOutlined />
+                    <span>Home</span>
+                    </div>
+                     </Menu.Item>
+                     <Menu.Item key="3" className='h-100' >
+                    <div className='h-100 py-1 d-flex align-items-center menu-content'>
+                    <HomeOutlined />
+                    <span>Home</span>
+                    </div>
+                     </Menu.Item>
+                     <Menu.Item key="4" className='h-100' >
+                    <div className='h-100 py-1 d-flex align-items-center menu-content'>
+                    <HomeOutlined />
+                    <span>Home</span>
+                    </div>
+                     </Menu.Item>
+                     <Menu.Item key="5" className='h-100' >
+                    <div className='h-100 py-1 d-flex align-items-center menu-content'>
+                    <HomeOutlined />
+                    <span>Home</span>
+                    </div>
+                     </Menu.Item>
+                     <Menu.Item key="6" className='h-100' >
+                    <div className='h-100 py-1 d-flex align-items-center menu-content'>
+                    <HomeOutlined />
+                    <span>Home</span>
+                    </div>
+                     </Menu.Item>
+
 
                 </Menu>
             </section>

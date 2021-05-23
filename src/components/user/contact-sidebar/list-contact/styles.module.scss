@@ -1,0 +1,20 @@
+@import '../../../../assets/styles/color';
+.friendListWrap {
+    p {
+        color: #adb8c5;
+    font-weight: 700;
+    font-size: 14px;
+    }
+    .contactItemWrap {
+        .contactName {
+            color: $text-bold-color;
+            padding-left: .5rem;
+            font-size: 16px;
+            font-weight: 550;
+        }
+        &:first-child {
+            margin-top: 0px !important;
+        }
+    }
+  
+}

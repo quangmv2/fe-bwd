@@ -1,14 +1,13 @@
 import { Layout, Menu } from 'antd';
 import React, { Suspense, useState } from 'react';
-import { UserOutlined, HomeOutlined, ContactsOutlined } from "@ant-design/icons";
+
 // import { menuUserRouters } from '@routers';
 import { SiderComponent } from '@components';
-import { BiHealth } from "react-icons/bi";
+
 import './user-layout.scss'
 import { HeaderComponent } from '@components'
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import { BottomNavigation } from '@components'
 import { LoadingLazyComponent } from '../loading-page';
 
 const { SubMenu } = Menu;
@@ -27,53 +26,60 @@ const UserPage: React.FC<UserPageProps> = ({
 }) => {
 
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+   
     const [toggleCollapsed, setToggleCollapsed] = useState<boolean>(false);
     return (
         <Layout style={{ maxHeight: "100vh" }} className='user-layout-wrap'>
-            <Header >
-                <HeaderComponent />
-            </Header>
+           
             <Layout>
                 <Sider
                     breakpoint="lg"
                     collapsedWidth="0"
-                    style={{ height: "calc(100vh - 80px)", maxHeight: "calc(100vh - 80px)" }}
+                    style={{ 
+                        overflow: 'auto',
+                        height: '100vh',
+                        position: 'fixed',
+                        left: 0,
+                      
+                    }}
                     // className="site-layout-background"
                     collapsed={toggleCollapsed}>
-                    <SiderComponent />
+                        <div style={{ paddingTop: '80px'}}>
+                        <SiderComponent />
+
+                        {/* <div>
+                  
+                    </div> */}
+                    </div>
                 </Sider>
                 <Layout >
+                <Header 
+                style={{
+                    zIndex: 100,
+                    position: 'fixed',width: '100%', top: 0, padding: 0}}
+                className="site-layout-background" >
+                      <HeaderComponent />
+                </Header> 
+                     {/* <Header style={{zIndex: 100}}>
+               
+            </Header> */}
                     <Content
                         className="site-layout-background"
                         style={{
                             background: '#f7fafb',
-                            margin: 0,
-                            paddingTop: '1.5rem',
-                            minHeight: 280,
-                            maxHeight: 'calc(100vh - 80px)',
-                            overflow: "auto"
+                            marginLeft: '285px',
+                            paddingTop: 'calc(80px + 1.5rem)',
+                            overflow: 'initial'
+                            
                         }}
-                    >
+                    >    
+
                         <Suspense fallback={<LoadingLazyComponent />} >
                             {
                                 children
                             }
                         </Suspense>
-                        <BottomNavigation
-
-                            value={value}
-                            onChange={(event, newValue) => {
-                                setValue(newValue);
-                            }}
-                            className={`d-lg-none position-absolute bottom-0 ${classes.root}`}
-                        >
-                            <BottomNavigationAction label="Recents" value="recents" icon={<HomeOutlined />} />
-                            <BottomNavigationAction label="Contact" icon={<ContactsOutlined />} />
-                            <BottomNavigationAction label="Psychological" icon={<BiHealth />} />
-                            <BottomNavigationAction label="User" icon={<UserOutlined />} />
-                            <BottomNavigationAction label="User" icon={<UserOutlined />} />
-                        </BottomNavigation>
+                       <BottomNavigation />
                     </Content>
                 </Layout>
             </Layout>

@@ -1,5 +1,6 @@
 @import '../../assets/styles/color';
 .wrap {
+    margin-bottom: 0.5rem;
     .name {
         font-size: 15px;
         font-weight: 620;
@@ -37,5 +38,11 @@
             font-weight: 600;
             color: $text-bold-color
         }
+    }
+
+}
+@media (max-width: 992px) {
+    .wrap {
+        margin-bottom: 4rem;
     }
 }

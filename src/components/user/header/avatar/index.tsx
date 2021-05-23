@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Dropdown, Avatar } from 'antd'
 
+
 import './styles.scss'
 
 interface avatarProps {
