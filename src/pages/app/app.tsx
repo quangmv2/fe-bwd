@@ -36,26 +36,26 @@ const AppRouters: React.FC<AppProps> = (props) => {
   }, [dispatchAuth])
 
   const verifyAuth = async () => {
-    const token = localStorage.getItem(ACCESS_TOKEN);
-    if (!token) {
-      setLoging(false);
-      return
-    };
-    const me = await fetchMe();
-    if (!me) {
-      setLoging(false);
-      return
-    }
-    dispatchAuth({
-      type: "SET_AUTHEN",
-      payload: {
-        isAuth: true,
-        user: me
-      }
-    })
-    setLoging(false);
+    // const token = localStorage.getItem(ACCESS_TOKEN);
+    // if (!token) {
+    //   setLoging(false);
+    //   return
+    // };
+    // const me = await fetchMe();
+    // if (!me) {
+    //   setLoging(false);
+    //   return
+    // }
+    // dispatchAuth({
+    //   type: "SET_AUTHEN",
+    //   payload: {
+    //     isAuth: true,
+    //     user: me
+    //   }
+    // })
+    // setLoging(false);
 
-    return;
+    // return;
     const meLocal: any = {
       _id: "6084f501e817a7502ea9bb93",
       username: "appadmin",
