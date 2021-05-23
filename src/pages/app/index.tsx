@@ -26,16 +26,13 @@ const App: React.FC<AppProps> = () => {
   }, [])
 
   return (
-    // <ApolloProvider ={client}>
-    //   <StoreContextProvider>
-    //     <HeaderProvider>
-    //       <AppRouters />
-    //     </HeaderProvider>
-    //   </StoreContextProvider>
-    // </ApolloProvider>
-    <Button onClick={() => {
-      // socket.emit("sendMessage")
-    }}>1</Button>
+    <ApolloProvider ={client}>
+      <StoreContextProvider>
+        <HeaderProvider>
+          <AppRouters />
+        </HeaderProvider>
+      </StoreContextProvider>
+    </ApolloProvider>
   );
 }
 
