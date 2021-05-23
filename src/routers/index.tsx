@@ -27,7 +27,7 @@ const routersNotAuth: IRouter[] = [
     {
         exact: true,
         path: '/home',
-        component: 'user',
+        component: 'home',
         noHeader: true
     },
     // {
