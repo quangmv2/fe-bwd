@@ -5,10 +5,15 @@ import SiderComponent from './user/sider'
 import OutlineButton from './outline-button'
 import StorySection from './user/story-section'
 import AddPost from './add-post'
-import Post from './post'
+import Post from './user/post'
 import HeaderComponent from './user/header'
 import ContactSidebar from './user/contact-sidebar'
 import BottomNavigation from './user/botttom-navigation'
+import FullModal from './full-modal'
+import ShowMore from './show-more'
+import PostComment from './user/post/post-comment'
+import PsychologistItem from './user/psychologist-item'
+import PsychologistOverview from './user/psychologist-overview'
 
 export {
     ButtonComponent,
@@ -21,7 +26,13 @@ export {
     Post,
     HeaderComponent,
     ContactSidebar,
-    BottomNavigation
+    BottomNavigation,
+    FullModal,
+    ShowMore,
+    PostComment,
+    PsychologistItem,
+    PsychologistOverview
+    
 }
 
 export * from './layout'
@@ -31,3 +42,4 @@ export * from './beep-loader'
 export * from './loging'
 export * from './goalitems'
 export * from './function-item'
+export * from './full-modal'

@@ -1,0 +1,20 @@
+@import '../../../../assets/styles/color';
+.title {
+    border-bottom: 2px solid $border-color;
+    h3 {
+        color: $bold-grey-color
+    }
+}
+.listName {
+    font-size: 15px;
+    font-weight: 620;
+    color: $bold-grey-color
+}
+.renderListStory {
+    max-height: calc(100vh - 85px);
+    overflow: auto;
+}
+.storiesWrap {
+    border-radius: 12px;
+    overflow: hidden;
+}

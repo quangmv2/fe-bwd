@@ -25,6 +25,7 @@ const HeaderComponent: React.FC<headerProps> = ({
     const onClose = () => {
         setVisible(false);
     };
+
     return (
         <div className={` ${styles.wrap} px-4 header-wrap d-flex align-items-center justify-content-between`}>
             <Drawer

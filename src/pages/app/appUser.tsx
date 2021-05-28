@@ -18,6 +18,8 @@ interface AppUserProps {
 
 const AppUser: React.FC<AppUserProps> = (props) => {
     const { path } = useRouteMatch()
+    console.log(path);
+    
     return (
         <Switch>
             {
@@ -25,10 +27,10 @@ const AppUser: React.FC<AppUserProps> = (props) => {
                     <Route
                         key={index}
                         exact={route.exact}
-                        path={`${path}${route.path}`}
+                        path={`${route.path}`}
                         render={(routeProps) => {
                             const Component = Components[route.component]
-                            return <UserPage>
+                            return <UserPage {...props} {...route}>
                                 <Component {...props} {...routeProps} route={route} />
                             </UserPage>
                         }}

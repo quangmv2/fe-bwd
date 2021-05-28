@@ -87,6 +87,7 @@ const AppRouters: React.FC<AppProps> = (props) => {
         isAuth: true
       }
     });
+    setLoging(false);
   }
 
   const fetchMe = async () => {

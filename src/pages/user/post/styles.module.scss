@@ -1,0 +1,73 @@
+@import '../../../assets/styles/color';
+.wrap {
+    .likeIconContainer {
+        background-color: $button-blue-color;
+        width: 32px;
+        height: 32px;
+    }
+    .closeIcon {
+        z-index: 2;
+        top: 10px; 
+        left: 10px;
+         font-size: 41px;
+          opacity: 0.35;
+          &:hover {
+              opacity: unset;
+          }
+    }
+    .commentWrap {
+        &:first-child {
+            margin-top: unset !important;
+        }
+    }
+    .content {
+        color: $text-bold-color
+    }
+    .renderComment {
+        max-height: calc(100vh - 130px);
+        overflow: auto;
+    }
+    .postInfoWrap {
+        border-bottom: 2px solid $border-color;
+    }
+    .commentContainer {
+        background-color: $color-background;
+        margin-left: .5rem;
+        max-height: 200px;
+        overflow: auto;
+    }
+    .layoutContent {
+        margin-right: 320px;
+    }
+    .reactSection {
+        span {
+            padding-left: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            color: $text-bold-color
+        }
+    }
+    .name {
+        font-size: 15px;
+        font-weight: 620;
+        color: #0A2053;
+    }
+    .time {
+        font-size: 14px;
+    }
+    
+@media (max-width: 768px) {
+    .layoutContent {
+        margin-right: 0 !important;
+    }
+}
+@media (min-width: 991px) {
+    .swiperSlide {
+        padding: 80px;
+        img {
+            border-radius: 12px
+        }
+    }
+    
+}
+}

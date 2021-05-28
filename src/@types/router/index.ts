@@ -7,7 +7,9 @@ export interface IRouter {
     noHeader?: boolean,
     option?: any,
     permission?: TAppPermission,
-    title?: string
+    title?: string,
+    sidebar?: boolean,
+    noBottomNav?: boolean
 }
 
 export interface IMenuRouter {

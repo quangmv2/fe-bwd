@@ -1,0 +1,39 @@
+@import '../../../assets/styles/color';
+
+.wrap {
+    img {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        width: 120x;
+    }
+   
+    height: 100vh;
+.doctor {
+    -webkit-box-shadow: 59px 28px 10px -9px rgba(240,241,245,1);
+-moz-box-shadow: 59px 28px 10px -9px rgba(240,241,245,1);
+box-shadow: 59px 28px 10px -9px rgba(240,241,245,1);
+}
+.doctorPicked {
+    margin-left: 15px;
+    margin-bottom: 2px;
+    transition: 0.3s;
+}
+    .title {
+        color: $text-bold-color;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+    .lastVisited {
+        font-size: 12px;
+    }
+    .name {
+        font-size: 16px;
+        font-weight: 620;
+        color: $text-bold-color;
+    }
+    .container {
+        border-right: 1px solid red;
+    }
+
+}
