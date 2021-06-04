@@ -7,7 +7,7 @@ import { client } from '@config';
 import { io } from 'socket.io-client'
 import { Button } from 'antd'
 
-io('http://localhost:4200')
+// io('http://localhost:4200')
 // socket.connect()
 
 

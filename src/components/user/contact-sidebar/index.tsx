@@ -104,9 +104,9 @@ const ContactSidebar: React.FC<contactProps> = ({
 
   ]
   const renderMessage = () => {
-    return _.map(message, ({ text }) => {
+    return _.map(message, ({ text }, index) => {
       return (
-        <div className={` ${styles.textMesWrap}`}>
+        <div className={` ${styles.textMesWrap}`} key={`msg ${index}`}>
           <div style={{ maxWidth: 'max-content' }}>
             <p className={` px-3 py-2 m-0 ${styles.textMess}`}>
               {text}
@@ -118,9 +118,9 @@ const ContactSidebar: React.FC<contactProps> = ({
 
   }
   const renderMyMessage = () => {
-    return _.map(message, ({ text }) => {
+    return _.map(message, ({ text }, index) => {
       return (
-        <div className={` ${styles.textMyMessage}`}>
+        <div className={` ${styles.textMyMessage}`} key={`mmsg ${index}`}>
           <div style={{ maxWidth: 'max-content' }}>
             <p className={` px-3 py-2 m-0 ${styles.textMyMess}`}>
               {text}

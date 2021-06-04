@@ -17,7 +17,7 @@ const PsychologistListPage: React.FC<PsychologistPageProps> = () => {
       name: 'Alllo',
       star: 3
     },
-    
+
     {
       name: 'Alllo',
       star: 3
@@ -37,20 +37,20 @@ const PsychologistListPage: React.FC<PsychologistPageProps> = () => {
 
   ]
   const renderMessageItems = () => {
-    return _.map(doctor, ({ name, star}) => {
-        return (
-          <div>
-            <div className='d-flex bg-white border-radius-12 p-3 my-3 shadow-css' style={{ height:'100px'}}>
-              <img src={woman1} className='h-100 border-radius-12'/>
-              <div>
-                <p>{name}</p>
-              </div>
+    return _.map(doctor, ({ name, star }) => {
+      return (
+        <div>
+          <div className='d-flex bg-white border-radius-12 p-3 my-3 shadow-css' style={{ height: '100px' }}>
+            <img src={woman1} className='h-100 border-radius-12' />
+            <div>
+              <p>{name}</p>
             </div>
           </div>
-        )
+        </div>
+      )
     })
 
-}
+  }
   return (
     <Row className={` px-3 psychologist-list-wrap ${styles.wrap}`}>
       <Col span={12} className='px-2'>
@@ -59,7 +59,7 @@ const PsychologistListPage: React.FC<PsychologistPageProps> = () => {
           <Input bordered={false} className='bg-white border-radius-12 overflow-hidden' prefix={<SearchOutlined />} />
         </div>
         <div>
-    {renderMessageItems()}
+          {renderMessageItems()}
         </div>
       </Col>
       <Col span={12}>

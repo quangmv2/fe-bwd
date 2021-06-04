@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import styles from "./styles.module.scss";
 import { woman1 } from "@assets"
-import _ from "lodash";
+import _, { indexOf } from "lodash";
 import Avatar from 'antd/lib/avatar/avatar'
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
@@ -92,9 +92,9 @@ const StorySection: React.FC<storySectionProps> = ({
     //     onChanged: function(event) {...}
     // };
     const Story = () => {
-        return _.map(story, ({ name, avatar }) => {
+        return _.map(story, ({ name, avatar }, index) => {
             return (
-                <SwiperSlide className={`${styles.storyContainer} hover-pointer border-radius-12 `} style={{ backgroundImage: `url(${woman1})` }} >
+                <SwiperSlide key={`story ${index}`} className={`${styles.storyContainer} hover-pointer border-radius-12 `} style={{ backgroundImage: `url(${woman1})` }} >
                     {/* <img className='w-100 h-100 border-radius-12 position-relative' src={woman1} /> */}
                     <div className='d-block  '>
                         <div className={`border-radius-12 position-absolute ${styles.avatarContainer}`}>

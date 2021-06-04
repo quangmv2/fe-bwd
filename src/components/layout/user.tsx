@@ -31,8 +31,7 @@ const UserPage: React.FC<UserPageProps> = ({
 
     return (
         <Layout style={{ maxHeight: "100vh" }} className='user-layout-wrap'>
-           
-            <Layout>
+            <Layout  className='user-layout-wrap-lay'>
                 <Sider
                     breakpoint="lg"
                     collapsedWidth="0"

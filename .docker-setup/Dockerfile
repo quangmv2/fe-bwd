@@ -2,10 +2,10 @@ FROM node
 
 RUN npm i -g yarn
 
-WORKDIR /venv
+WORKDIR /var/www/html
 COPY start.sh /venv
 RUN chmod a+x /venv/*
 
-ENTRYPOINT [ "/venv/start.sh" ]
+ENTRYPOINT [ "node" ]
 
 EXPOSE 80
