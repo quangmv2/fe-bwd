@@ -27,17 +27,17 @@ const PsychologistListPage: React.FC<PsychologistListProps> = () => {
           left: 285,
           top: 0
         }}
-        width={285}
+        width={260}
         className=''
       >
-        <div style={{ paddingTop: '105px' }} className='px-2 w-100'>
+        <div style={{ marginTop: '105px', height: 'calc(100vh - 105px - 1.5rem )', marginRight: '1rem' }} className='px-2 bg-white border-radius-12 shadow-css' >
          
           <PsychologistFilter />
          
           {/* <PsychologistOverview /> */}
         </div>
       </Sider>
-      <Layout className="site-layout" style={{ marginLeft: '285px', maxWidth: '100%' }} >
+      <Layout className="site-layout" style={{ marginLeft: '270px', maxWidth: '100%' }} >
         <Content className='px-3 pt-4'>
           <PsychologistItem />
         </Content>

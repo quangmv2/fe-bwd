@@ -8,6 +8,10 @@
         padding-left: 2.5rem;
         font-weight: 600;
     }
+    .timePick {
+        background-color: $text-bold-color !important;
+        color: #fff !important
+    }
     .guideMatchingButton {
         border-radius: 7px;
         background-color: #D9E5FC;
@@ -78,6 +82,16 @@ box-shadow: 59px 28px 10px -9px rgba(240,241,245,1);
                 font-size: 14px;
                 font-weight: 500;
             }
+        }
+        .timeWrap {
+            border: 2px solid $text-bold-color;
+            border-radius: 12px;
+            color: $text-bold-color;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .book {
+            font-weight: 700;
         }
         .tagItem {
             // background: red;

@@ -54,12 +54,14 @@ const routersUser: IRouter[] = [
         path: '/psychologist',
         component: 'user/psychologist-list',
         sidebar: true,
+        title: 'Therapists',
     },
     {
         exact: true,
         path: '/post/:id',
         component: 'user/post',
         sidebar: false,
+        title: 'post',
         noHeader: true,
         noBottomNav: true
     },
@@ -67,6 +69,7 @@ const routersUser: IRouter[] = [
         exact: true,
         path: '/message/:id',
         component: 'user/message',
+        title: 'Messages',
         sidebar: false,
         noHeader: false,
         noBottomNav: false
@@ -75,6 +78,7 @@ const routersUser: IRouter[] = [
         exact: true,
         path: '/profile/:id',
         component: 'user/user-profile',
+        title: 'profile',
         sidebar: false,
         noHeader: false,
         noBottomNav: false

@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 import _ from 'lodash'
 import { RiMoreFill } from 'react-icons/ri';
 import './styles.scss'
+import { useHistory } from 'react-router-dom'
 
 interface contactProps {
   style?: CSSProperties
@@ -15,6 +16,7 @@ interface contactProps {
 const ListContact: React.FC<contactProps> = ({
 
 }) => {
+  const history = useHistory()
   const CONTACT_CSS = css({
     height: 'calc(100vh - 320px)',
     width: '100%'
@@ -81,12 +83,16 @@ const ListContact: React.FC<contactProps> = ({
     },
 
   ]
-
+const toMessage = () => {
+  history.push('/message/mvQuang')
+}
 
   const renderContact = () => {
     return _.map(contact, ({ name, newMessage }, index) => {
       return (
-        <div className={`mt-3 ${styles.contactItemWrap} contact-item-wrap d-flex align-items-center justify-content-between`}
+        <div 
+        onClick={toMessage}
+        className={`mt-3 ${styles.contactItemWrap} contact-item-wrap d-flex align-items-center justify-content-between`}
           key={`contact ${index}`}
         >
           <div className='d-flex align-items-center'>

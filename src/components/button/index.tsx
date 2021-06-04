@@ -32,7 +32,7 @@ const button: React.FC<buttonProps> = memo(({
             newLoadings[index] = false;
             setLoadings(newLoadings)
             onPress()
-        }, 6000);
+        }, 2000);
     };
     return (
         // <div className={styles.container}>

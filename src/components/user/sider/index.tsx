@@ -43,7 +43,7 @@ const SiderComponent: React.FC<SiderComponentProps> = () => {
                                 <Menu.Item key={`menu ${mR.path}`} className='h-100'>
                                     <Link to={mR.path}> <div className='h-100 py-1 d-flex align-items-center menu-content'>
                                         <HomeOutlined />
-                                        <span>Home</span>
+                                        <span className='text-capitalize'>{mR.title}</span>
                                     </div></Link>
                                 </Menu.Item>
                             )

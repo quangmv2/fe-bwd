@@ -1,17 +1,19 @@
 @import '../../../assets/styles/color';
-
-.layoutContent {
-    background-color: $color-background;
+.wrap {
+    .layoutContent {
+        background-color: $color-background;
+    }
+    
+    
+    .rightSider {
+        // position: absolute;
+        // right: 0;
+    }
+    .test {
+        background-color: $color-background;
+    }
 }
 
-
-.rightSider {
-    // position: absolute;
-    // right: 0;
-}
-.test {
-    background-color: $color-background;
-}
 @media (max-width: 991px) {
     .leftSider {
 display: none;
