@@ -129,13 +129,14 @@ const StorySection: React.FC<storySectionProps> = ({
 
     }
     return (
-        <div className={` ${styles.wrap}`}>
-            <Modal visible={isModalVisible} className='test' footer={null} onCancel={handleCancel}>
+        <div className={` ${styles.wrap} story-wrap`}>
+          
+            <Modal  visible={isModalVisible} wrapClassName='story-view-modal' footer={null} onCancel={handleCancel}>
                 <StoryView
                     stories={stories}
                 />
             </Modal>
-
+          
             <Swiper
                 breakpoints={{
                     1024: {

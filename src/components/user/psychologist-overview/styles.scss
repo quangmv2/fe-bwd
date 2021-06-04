@@ -1,8 +1,35 @@
 @import '../../../assets/styles/color';
+// .ant-modal-content {
+//     height: 350px !important;
+//         // background-color: unset !important;
+//         // box-shadow: unset !important
+//     }
+//     .ant-modal-body {
+//         padding: unset !important;
+//     }
+//     .ant-modal {
+       
+//         padding-bottom: unset;
+//         max-width: unset !important;
+//         width: 100% !important
+//     }
+//     .ant-modal-wrap {
+//         //left: 285px !important
+//     }
+//     .ant-modal-close-x {
+//         color: white !important
+    
+//     }
+.success-booking-modal {
+    .ant-modal-content {
+        border-radius: 10px !important;
+    }
+}
 .psychologist-overview {
     // .swiper-slide {
     //     height: unset !important;
     // }
+
 .anticon {
     color: $text-bold-color
 }

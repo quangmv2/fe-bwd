@@ -38,7 +38,7 @@ const AddPost: React.FC<addPostProps> = ({
         }
     };
     return (
-        <div className={`${styles.wrap} py-2 add-post-wrap my-3`}>
+        <div className={`${styles.wrap} py-2 add-post-wrap mb-3`}>
             <div className='bg-white border-radius-12 w-100 p-3 shadow-css'>
                 <Row >
                     <Col lg={20} md={20} sm={19} xs={21} className='mt-2 mt-lg-0 mt-sm-0 mt-md-0 mt-xl-0 mt-xxl-0'>

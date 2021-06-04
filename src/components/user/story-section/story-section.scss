@@ -1,5 +1,7 @@
 @import '../../../assets/styles/color';
 
+    
+.story-view-modal {
     .ant-modal-content {
         height: 100vh !important;
             // background-color: unset !important;
@@ -21,13 +23,11 @@
             color: white !important
         
         }
-
-
-
-
+  
+}
 .story-container {
     
-  
+   
     .ant-avatar {
         border-radius: 12px;
 

@@ -1,6 +1,26 @@
 @import '../../../assets/styles/color';
 
 .wrap {
+    background-color: $color-background;
+    .type {
+        font-size: 12px;
+        color: $color-text-muted;
+        padding-left: 2.5rem;
+        font-weight: 600;
+    }
+    .guideMatchingButton {
+        border-radius: 7px;
+        background-color: #D9E5FC;
+        color: #216fed;
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .needHelp {
+        color: $color-text-muted;
+        font-size: 14px;
+        font-weight: 700;
+        padding-right: 1.5rem;
+    }
     img {
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
@@ -28,12 +48,64 @@ box-shadow: 59px 28px 10px -9px rgba(240,241,245,1);
         font-size: 12px;
     }
     .name {
-        font-size: 16px;
+        font-size: 25px;
         font-weight: 620;
         color: $text-bold-color;
+    }
+    .position {
+        font-size: 13px;
+        color: $color-text-muted;
+        font-weight: 600;
     }
     .container {
         border-right: 1px solid red;
     }
+    .content {
+        padding-left: 1rem;
+        padding-right: 1.5rem;
+    }
+
+   
+        .intro {
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            p {
+                color: $text-bold-color;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+        .tagItem {
+            // background: red;
+            background-color: #D9E5FC;
+            color: #216fed;
+           font-size: 15px;
+            border-radius: 10px;
+            border: 1px solid $border-color
+        }
+        .therapiesOffered, .special {
+            p {
+                color: $text-bold-color;
+                font-weight: 600;
+                font-size: 16px;
+            }
+        }
+        .special {
+          
+        }
+        .timePicker {
+            border: 2px solid $border-color;
+            border-radius: 12px
+
+        }
+
+           
+          
+          
+       
 
 }

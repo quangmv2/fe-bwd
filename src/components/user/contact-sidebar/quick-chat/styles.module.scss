@@ -1,0 +1,45 @@
+@import '../../../../assets/styles/color';
+.wrap {
+  
+        p {
+            color: #adb8c5;
+        font-weight: 700;
+        font-size: 14px;
+        }
+        .textMess {
+           color: white;
+           font-weight: 600;
+           font-size: 13px;
+           border-radius: 12px;
+            background-color: $button-blue-color;
+        }
+        .textMesWrap {
+            margin-left: 10px;
+            margin-top: 10px;
+            &:first-child {
+                margin-top: 0px !important;
+            }
+        }
+        .textMyMessage {
+            margin-right: 10px;
+            background-color: unset !important;
+            margin-top: 10px;
+            &:first-child {
+                margin-top: 0px !important;
+            }
+           
+        }
+        .textMyMess {
+            color: $text-bold-color;
+            font-weight: 500;
+            text-align: right;
+            border-radius: 12px;
+            border: 1px solid $button-border-color;
+           
+        }
+        .chatWrap {
+            min-width: 200px;
+            overflow: auto;
+            max-height: 320px;
+        }
+}

@@ -1,0 +1,28 @@
+@import '../../../assets/styles/color';
+
+.medi-card {
+    .ant-checkbox {
+        span {
+            padding-right: unset !important;
+        }
+       
+    }
+    &:hover {
+        box-shadow: 0 6px 16px -8px rgba(0,0,0,.08),0 9px 28px 0 rgba(0,0,0,.05),0 12px 48px 16px rgba(0,0,0,.03);
+    }
+    border-radius: 12px !important;
+    .ant-card-body {
+        display: flex;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+        p {
+            color: $text-bold-color;
+            font-weight: 600;
+        }
+        .anticon {
+            font-size: 20px;
+        }
+
+       
+    }
+}

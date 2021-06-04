@@ -1,0 +1,36 @@
+@import '../../../assets/styles/color';
+.wrap {
+    .label {
+        color: $color-text-muted;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .content {
+        color: $text-bold-color;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    .container {
+        border-bottom: 2px solid $border-color;
+
+    }
+    .imageWrap {
+        img {
+            border-radius: 5px;
+        }
+       
+        padding-right: .5rem;
+        padding-top: .5rem;
+        &:nth-child(even) {
+            padding-right: unset !important;
+        }
+      
+    }
+    .photos {
+        color: $text-bold-color;
+        font-size: 16px;
+        font-weight: 600;
+
+    }
+
+}

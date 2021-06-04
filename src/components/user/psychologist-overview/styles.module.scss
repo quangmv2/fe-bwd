@@ -1,10 +1,12 @@
 @import '../../../assets/styles/color';
+
 .wrap {
     border-left: 1px solid $button-border-color;
     img {
         width: 310px;
        
     }
+
     .viewDetailButton {
         width: 40%;
         margin-right: .5rem;

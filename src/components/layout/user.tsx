@@ -1,5 +1,6 @@
 import { Layout, Menu } from 'antd';
 import React, { Suspense, useState } from 'react';
+import styles from './styles.module.scss'
 
 // import { menuUserRouters } from '@routers';
 import { SiderComponent } from '@components';
@@ -35,7 +36,7 @@ const UserPage: React.FC<UserPageProps> = ({
     const [toggleCollapsed, setToggleCollapsed] = useState<boolean>(false);
 
     return (
-        <Layout style={{ maxHeight: "100vh" }} className='user-layout-wrap'>
+        <Layout style={{ maxHeight: "100vh" }} className={`user-layout-wrap ${noBottomNav ? null : styles.wrap}`}>
           <Layout>
           {sidebar ? (   <Sider
                     breakpoint="lg"

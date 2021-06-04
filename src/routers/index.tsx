@@ -42,6 +42,7 @@ const routersUser: IRouter[] = [
     {
         exact: true,
         path: '/',
+        
         component: 'user/new-feed-page',
         title: 'new feed',
         sidebar: true,
@@ -61,6 +62,22 @@ const routersUser: IRouter[] = [
         sidebar: false,
         noHeader: true,
         noBottomNav: true
+    },
+    {
+        exact: true,
+        path: '/message/:id',
+        component: 'user/message',
+        sidebar: false,
+        noHeader: false,
+        noBottomNav: false
+    },
+    {
+        exact: true,
+        path: '/profile/:id',
+        component: 'user/user-profile',
+        sidebar: false,
+        noHeader: false,
+        noBottomNav: false
     },
 ]
 

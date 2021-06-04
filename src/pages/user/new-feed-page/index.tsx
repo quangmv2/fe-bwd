@@ -29,32 +29,34 @@ interface NewfeedPageProps {
 const NewfeedPage: React.FC<NewfeedPageProps> = () => {
 
   return (
-   
-    <Layout className='newfeed-page-wrap'>
-    <Sider
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        right: 0,
-        top: 0
-        
-      }}
-      className='newfeed-sider'
-    >
-      <div style={{ paddingTop: '80px'}}>
-   <ContactSidebar />
-   </div>
-    </Sider>
-    <Layout className="site-layout" style={{ marginRight: '320px', maxWidth: '100%' }} >
-      <Content  className='px-3 pt-4'>
-      <StorySection />
-      <AddPost />
-       <Post />
-      </Content>
 
+    <Layout className='newfeed-page-wrap'>
+      <Sider
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          position: 'fixed',
+          right: 0,
+          top: 0
+
+        }}
+        className='newfeed-sider'
+      >
+        <div style={{ paddingTop: '80px' }}>
+          <ContactSidebar />
+        </div>
+      </Sider>
+      <Layout className="site-layout" style={{ marginRight: '320px', maxWidth: '100%' }} >
+        <Content className='px-3 pt-4'>
+          <StorySection />
+          <div className='mt-3'>
+          <AddPost />
+          </div>
+          <Post />
+        </Content>
+
+      </Layout>
     </Layout>
-  </Layout>
 
   );
 }

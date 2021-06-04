@@ -20,7 +20,7 @@ const PostComponent: React.FC<PostProps> = ({
 }) => {
     const history = useHistory()
     const onViewPost = postId => {
-        history.push(`post/${postId}}`)
+        history.push(`/post/${postId}}`)
     }
     const menu = () => {
         return (

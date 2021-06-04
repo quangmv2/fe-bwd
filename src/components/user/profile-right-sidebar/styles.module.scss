@@ -1,0 +1,65 @@
+@import '../../../assets/styles/color';
+.wrap {
+    .friendIcon {
+        color: $text-bold-color
+    }
+    .friendMenu {
+       p {
+        //    padding-right: .5rem;
+       }
+    }
+}
+.mediWrap {
+    // border: 2px solid $border-color;
+   
+}
+.mediManage {
+    .title {
+        font-weight: 700;
+        font-size: 14px;
+        color: $color-text-muted;
+
+    }
+    .todayTitle{
+        color: $color-text-muted;
+        span {
+            color: $text-bold-color;
+            font-weight: 700;
+        }
+    }
+   
+}
+.text {
+    padding-left: .5rem !important;
+    padding-right: 0!important;
+    
+}
+.cardChecked {
+
+    background-color: $color-disabled;
+    &:hover {
+        cursor: pointer;
+        box-shadow: unset !important;
+    }
+}
+.bellOutline {
+    color: $color-text-muted
+}
+.mediNote {
+    color: $color-text-muted;
+    font-weight: 600;
+    font-size: 13px;
+}
+.friendMenu {
+    border-radius: 5px;
+    p {
+        padding-left: .5rem;
+        color: $text-bold-color;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .icon {
+        font-size: 20px;
+        color: $text-bold-color;
+    }
+}
