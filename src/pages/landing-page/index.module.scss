@@ -1,6 +1,11 @@
 @import '../../assets/styles/color';
 
-.container {
+.container { 
+
+    * {
+        user-select: none;
+    }
+
     // display: flex;
     height: 100vh;
     // width: 100vw;
@@ -175,7 +180,7 @@
         font-size: 14.5px;
         line-height: 40px;
         margin-left: 5px;
-
+        cursor: pointer;
     }
 
     .overViewContent {
@@ -192,7 +197,7 @@
         span {
             position: relative;
             color: $navy-blue-color;
-            text-decoration: underline;
+            // text-decoration: underline;
 
             &:hover {
                 text-decoration: none !important;
@@ -306,8 +311,9 @@
     }
     .formWrap {
         max-width: 555px !important;
-        margin-left: auto;
-    margin-right: auto;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
     }
     .lastOverviewContent {
         order: 2;

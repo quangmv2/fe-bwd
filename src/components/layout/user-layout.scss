@@ -1,6 +1,7 @@
 .user-layout-wrap {
     background: #f7fafb;
-  
+
+    overflow: auto;
     .ant-layout-sider {
         background: #f7fafb;
         min-width: 285px !important;
@@ -22,4 +23,12 @@
         margin-left: 0px !important;
         }
     }
+}
+
+.user-layout-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.user-layout-wrap-lay::-webkit-scrollbar {
+    display: none;
 }

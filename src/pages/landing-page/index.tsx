@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import indexStyles from "./index.module.scss";
-import { GoalItem, FunctionItem } from '@components';
+import { GoalItem } from '@components';
 import { Row, Col, Form, Input, Button } from "antd";
 import { mindset, underline, drugs, womanTogether } from '@assets'
 import { PlayCircleFilled } from '@ant-design/icons'
@@ -10,11 +10,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/f
 import { useHistory } from 'react-router-dom';
 
 
-interface LandingProps {
-
-}
-
-const Landing: React.FC<LandingProps> = () => {
+const Landing: FunctionComponent = () => {
 
     const history = useHistory()
 
@@ -38,18 +34,9 @@ const Landing: React.FC<LandingProps> = () => {
             title: 'qqq'
         },
     ]
-    const renderFunction = () => {
-        return _.map(funtionItem, ({ title }) => {
-            return (
-                <Col span={12} className={`py-5 ${indexStyles.functionItemWrap}`}>
-                    <FunctionItem />
-                </Col>
-
-            )
-        })
-    }
+   
     return (
-        <div className={`  landing-page-container ${indexStyles.container}`}>
+        <div className={`landing-page-container ${indexStyles.container}`}>
             <Row className={`${indexStyles.sloganContainer}`}>
                 <Col lg={9} md={24} className='pt-5 d-flex justify-content-center'>
                     <div>
@@ -109,7 +96,7 @@ const Landing: React.FC<LandingProps> = () => {
                     <Col lg={12} md={24} className={` ${indexStyles.lastOverviewContent} d-flex flex-column justify-content-center`}>
                         <h3 >Lorem, ipsum dolor.</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At amet eaque ea officiis ipsum, blanditiis facilis similique, deserunt provident non, praesentium vel dicta labore impedit asperiores earum necessitatibus sint officia itaque. Officia eligendi delectus reprehenderit temporibus ea, accusamus quis voluptates neque, quod architecto repellendus. Corporis, ratione eos? Autem, repellat incidunt!</p>
-                        <span className='text-decoration-underline' >Read more</span>
+                        <span className=''>Read more</span>
                     </Col>
                     <Col lg={12} md={24} className={indexStyles.imageContentWrap}>
                         <img className='w-100 h-100'  src={drugs} />
@@ -145,7 +132,6 @@ const Landing: React.FC<LandingProps> = () => {
                                         rules={[{ required: true, message: 'Please input your Password!' }]}
                                     >
                                         <Input
-
                                             type="password"
                                             placeholder="Password"
                                         />
@@ -172,8 +158,8 @@ const Landing: React.FC<LandingProps> = () => {
             <section className='py-3'>
                 <div className='container d-flex justify-content-lg-between align-items-lg-baseline flex-lg-row flex-column align-items-center justify-content-center'>
                     <p className='text-muted font-weight-bold'>
-                        Copyright @2021 HearMe. Designed by QN
-            </p>
+                        Copyright @{(new Date()).getFullYear()} HearMe. Designed by QN
+                    </p>
                     <div className='d-flex'>
                         <div className={indexStyles.iconWrap}>
                             <FaInstagram />

@@ -13,7 +13,7 @@ import { ACCESS_TOKEN } from '@constants'
 
 
 const domain = window.location.host // 'tms2.digihcs.com'
-const endPoint = `${process.env.END_POINT}`
+const endPoint = `${process.env.REACT_APP_END_POINT}`
 
 const urn = process.env.REACT_APP_GRAPHQL_URN || `${domain}/${endPoint}`
 
