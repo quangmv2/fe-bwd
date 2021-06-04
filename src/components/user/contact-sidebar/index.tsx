@@ -8,6 +8,7 @@ import _ from 'lodash'
 import { RiMoreFill } from 'react-icons/ri';
 import './styles.scss'
 import ListContact from './list-contact'
+import { QuickChat } from './quick-chat';
 
 interface contactProps {
   style?: CSSProperties
@@ -147,33 +148,7 @@ const ContactSidebar: React.FC<contactProps> = ({
   }
   return (
     <>
-      <section className={` py-4 quick-chat-wrap ${styles.wrap}`}>
-        <p className='text-uppercase px-4'>quick chat</p>
-        <div className={`shadow-css bg-white border-radius-12 shadow-css p-3 `} >
-          <ScrollToBottom className={ROOT_CSS}>
-            <div className='d-flex align-items-start'>
-              <div>
-                <Avatar size={40} shape='square'>N</Avatar>
-              </div>
-              <div>
-                {renderMessage()}
-              </div>
-            </div>
-            <div className='d-flex align-items-start flex-row-reverse mt-2'>
-              <div>
-                <Avatar size={40} shape='square'>N</Avatar>
-              </div>
-              <div className='d-flex flex-column align-items-end'>
-                {renderMyMessage()}
-              </div>
-            </div>
-          </ScrollToBottom>
-          <div>
-            <Input bordered={false} placeholder='Type something' prefix={<SendOutlined />} />
-          </div>
-        </div>
-
-      </section>
+     <QuickChat />
       <ListContact />
 
 

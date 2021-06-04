@@ -1,28 +1,33 @@
-// .story-section-wrap {
-//     // .owl-item {
-//     //     transform: translate3d(0px, 0px, 0px);
-//     //     transition: all 0s ease 0s;
-//     //     width: 100px;
-//     // }
-//     .owl-carousel {
-//         overflow: hidden;
-//         width: 100%;
-//     z-index: 1;
-//     }
-//   .owl-stage-outer {
-//         position: relative;
-//     overflow: hidden;
-//     -webkit-transform: translate3d(0,0,0);
-// }
-
-
-
-
-// }
 @import '../../../assets/styles/color';
 
-.story-container {
+    
+.story-view-modal {
+    .ant-modal-content {
+        height: 100vh !important;
+            // background-color: unset !important;
+            // box-shadow: unset !important
+        }
+        .ant-modal-body {
+            padding: unset !important;
+        }
+        .ant-modal {
+            top: unset !important;
+            padding-bottom: unset;
+            max-width: unset !important;
+            width: 100% !important
+        }
+        .ant-modal-wrap {
+            //left: 285px !important
+        }
+        .ant-modal-close-x {
+            color: white !important
+        
+        }
   
+}
+.story-container {
+    
+   
     .ant-avatar {
         border-radius: 12px;
 
@@ -40,3 +45,4 @@
         }
     }
 }
+

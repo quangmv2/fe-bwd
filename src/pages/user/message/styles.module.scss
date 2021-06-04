@@ -1,0 +1,74 @@
+@import '../../../assets/styles/color';
+
+.wrap {
+    .messageWrap {
+        margin-right: 320px;
+        max-width: 100%
+    }
+    .moreIconWrap {
+        padding-left: 1rem;
+        .moreIcon {
+            font-size: 22px;
+        }
+    }
+    .searchIcon {
+        font-size: 20px;
+    }
+
+    .messageContent {
+        background-color: $color-background;
+        border-bottom-right-radius: 50px
+    }
+
+    .messgaePageSider {
+        width: 320px !important;
+        flex: unset !important;
+        background-color: white;
+        min-width: unset !important;
+        max-width: unset !important;
+    }
+
+    .messageTitle {
+        height: 60px !important;
+    }
+
+    .container {
+        // border-radius: 45px;
+        background-color: $color-background;
+    }
+
+    .titleWrap {
+        border-top-right-radius: 50px;
+        background-color: $color-background;
+
+        h2 {
+            font-weight: 700;
+            color: $text-bold-color;
+        }
+
+        p {
+            color: $color-text-muted;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .messageWrap {
+        margin-right: unset !important;
+    }
+
+    .messgaePageSider {
+        display: none !important;
+    }
+    .titleWrap {
+        border-top-right-radius: unset !important;
+    }
+    .messageContent {
+        border-bottom-right-radius: unset !important;
+    }
+
+
+}

@@ -9,5 +9,8 @@ import womanTogether from './women-together.jpeg'
 import subscribeBg from './subscribe-bg.jpeg'
 import mindset from './mindset.jpg'
 import drugs from './drugs.jpeg'
+import psychologistConcept from './psychologist-concept.jpg'
+import doctorWoman from './doctor-woman.png'
+import firework from './fireworks.svg'
 
-export { mindset, sharing, underline, woman1, woman2, hug, underline2, lights, subscribeBg, womanTogether, drugs }
+export { firework, doctorWoman, mindset, sharing, underline, woman1, woman2, hug, underline2, lights, subscribeBg, womanTogether, drugs, psychologistConcept }

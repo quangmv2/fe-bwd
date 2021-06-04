@@ -1,0 +1,45 @@
+@import '../../../assets/styles/color';
+.wrap {
+    color: $text-bold-color;
+    padding-right: 2.5rem !important;
+    font-weight: 500;
+    .textMess {
+        background-color: $chat-list-background;
+        border-radius: 24px;
+        border-bottom-left-radius: 5px;
+    }
+    .textMyMess {
+        background-color: $info-background;
+        border-radius: 24px;
+        border-bottom-right-radius: 5px;
+    }
+    .typeWrap {
+        border-top: 1px solid $color-text-muted;
+    }
+    .plusIcon {
+        width: 22px;
+        height: 22px;
+        border: 1px solid $color-text-muted;
+        font-size: 16px !important;
+        border-radius: 5px;
+
+    }
+    .phoneIcon {
+        font-size: 20px;
+    }
+    .scrollWrap {
+        height: calc(100vh - 310px);
+        width: 100%;
+        padding-left: 2rem
+    }
+@media (max-width: 991px) {
+    .scrollWrap {
+        height: calc(100vh - 310px - 54px + 1.5rem);
+    }
+}
+@media (max-width: 480px) {
+    .scrollWrap {
+        height: calc(100vh - 310px - 54px + 3rem);
+    }
+}
+}

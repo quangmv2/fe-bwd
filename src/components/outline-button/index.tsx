@@ -17,14 +17,11 @@ const OutlineButton: React.FC<buttonProps> = ({
     return (
         // <div className={styles.container}>
         <button
-            className={`btn py-2 w-100 h-100 ${styles.btn} ${className}`}
+            className={`btn py-2 w-100 h-100 d-flex align-items-center justify-content-center ${styles.btn} ${className}`}
             type={type}
             style={style}
         >
-            <label
-
-            // className={styles.btn-label}
-            >{children ? children : "Button"}</label>
+           {children ? children : "Button"}
         </button>
         // </div>
     );
