@@ -1,0 +1,116 @@
+@import '../../../assets/styles/color';
+
+.wrap {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+
+    &::after {
+        content: '';
+        height: 160px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.41));
+    }
+
+}
+
+.container {
+    height: 400px;
+    position: relative;
+    z-index: 1;
+
+    .avatar-card {
+        position: absolute;
+        bottom: -42px;
+        left: 30px;
+        pointer-events: none;
+        width: calc(100% - 60px);
+
+        @media only screen and (max-width: 767px) {
+            bottom: -35px;
+        }
+
+        @media only screen and (max-width: 667px) {
+            bottom: 20px;
+        }
+
+        .avatar {
+            @media only screen and (max-width: 767px) {
+                width: 160px;
+                height: 160px;
+            }
+
+            @media only screen and (max-width: 667px) {
+                width: 140px;
+                height: 140px;
+            }
+
+            @media only screen and (max-width: 480px) {
+                width: 100px;
+                height: 100px;
+                border-width: 3px;
+            }
+        }
+
+    }
+}
+
+.infoSection {
+    z-index: 10;
+    top: 230px;
+    left: 50px;
+}
+
+.navigation {
+    background-color: #ffffff;
+    pointer-events: all;
+    box-shadow: 0 1px 2px #e5e5e5;
+
+    ul.menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media only screen and (max-width: 667px) {
+            justify-content: flex-start;
+        }
+
+        .active {
+            border-bottom: 2px solid $text-bold-color;
+        }
+
+        li {
+            margin: 0 15px;
+            display: block;
+            padding: 18px 15px 19px;
+            color: $text-bold-color;
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+
+            @media only screen and (max-width: 320px) {
+                margin: 0 7px;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            strong {
+                font-size: 18px;
+                font-weight: 600;
+                margin-right: 4px;
+            }
+
+        }
+    }
+}

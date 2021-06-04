@@ -41,38 +41,38 @@ const LoginPage: React.FC<LoginPageProps> = () => {
   }, [isAuth, history]);
 
   const onFinish = (values: any) => {
-    mutateData(LOGIN, {
-      info: values
-    }).then(async ({ data, errors }) => {
-      if (errors || !data?.login?.token) {
-        notification.error({
-          message: "Đăng nhập thất bại",
-        })
-        return;
-      }
-      localStorage.setItem(ACCESS_TOKEN, data?.login?.token)
-      const me = await fetchMe();
-      console.log(me);
-      if (!me) throw new Error();
-      dispatchAuth({
-        type: "SET_AUTHEN",
-        payload: {
-          user: me,
-          isAuth: true
-        }
-      });
-      notification.success({
-        message: "Đăng nhập thành công",
-      })
-    }).catch((error: ApolloError) => {
-      console.log(error.graphQLErrors);
-      error?.graphQLErrors.forEach(err => {
-        notification.error({
-          message: err?.message
-        })
-      })
-    })
-    return;
+    // mutateData(LOGIN, {
+    //   info: values
+    // }).then(async ({ data, errors }) => {
+    //   if (errors || !data?.login?.token) {
+    //     notification.error({
+    //       message: "Đăng nhập thất bại",
+    //     })
+    //     return;
+    //   }
+    //   localStorage.setItem(ACCESS_TOKEN, data?.login?.token)
+    //   const me = await fetchMe();
+    //   console.log(me);
+    //   if (!me) throw new Error();
+    //   dispatchAuth({
+    //     type: "SET_AUTHEN",
+    //     payload: {
+    //       user: me,
+    //       isAuth: true
+    //     }
+    //   });
+    //   notification.success({
+    //     message: "Đăng nhập thành công",
+    //   })
+    // }).catch((error: ApolloError) => {
+    //   console.log(error.graphQLErrors);
+    //   error?.graphQLErrors.forEach(err => {
+    //     notification.error({
+    //       message: err?.message
+    //     })
+    //   })
+    // })
+    // return;
     localStorage.setItem(ACCESS_TOKEN, "token")
     // const me = await fetchMe();
     // console.log(me);

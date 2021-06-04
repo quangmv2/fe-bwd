@@ -42,14 +42,42 @@ const routersUser: IRouter[] = [
     {
         exact: true,
         path: '/',
-        component: 'user/new-feed-page',
-        title: 'new feed'
         
+        component: 'user/new-feed-page',
+        title: 'new feed',
+        sidebar: true,
+        noHeader: false,
+        noBottomNav: false
     },
     {
         exact: true,
         path: '/psychologist',
-        component: 'user/psychologist-list'
+        component: 'user/psychologist-list',
+        sidebar: true,
+    },
+    {
+        exact: true,
+        path: '/post/:id',
+        component: 'user/post',
+        sidebar: false,
+        noHeader: true,
+        noBottomNav: true
+    },
+    {
+        exact: true,
+        path: '/message/:id',
+        component: 'user/message',
+        sidebar: false,
+        noHeader: false,
+        noBottomNav: false
+    },
+    {
+        exact: true,
+        path: '/profile/:id',
+        component: 'user/user-profile',
+        sidebar: false,
+        noHeader: false,
+        noBottomNav: false
     },
 ]
 

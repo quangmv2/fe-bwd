@@ -1,0 +1,33 @@
+@import '../../../assets/styles/color';
+.wrap {
+    .avatar {
+        border-radius: 12px
+    }
+    .avatarWrap {
+        padding-top: 4rem;
+        .name {
+            padding-top: .5rem; 
+            font-weight: 700;
+            color: $text-bold-color;
+            letter-spacing: 3;
+            font-size: 19px;
+        }
+        p {
+            color: $color-text-muted;
+            font-weight: 700;
+            font-size: 13px;
+        }
+    }
+    .divider {
+        border-top: 2px solid $border-color
+    }
+    .option {
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+        .optionIcon {
+            color: $color-text-muted;
+            font-size: 30px;
+        }
+    }
+}
