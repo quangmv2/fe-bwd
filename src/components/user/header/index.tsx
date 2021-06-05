@@ -37,7 +37,7 @@ const HeaderComponent: React.FC<headerProps> = ({
                 <SiderComponent />
             </Drawer>
       
-                <img style={{ width: '120px', height: '120px'}} className='mt-3' src={logo} />
+                <img style={{ width: '120px', height: '120px'}} className='mt-3 mx-5' src={logo} />
                 {/* <p className='m-0'>hearMe</p> */}
       
             <div className={` ${styles.headerLeftWrap} d-flex align-items-baseline justify-content-between `}>
