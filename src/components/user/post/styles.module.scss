@@ -1,6 +1,11 @@
 @import '../../../assets/styles/color';
 
 .wrap {
+    .postWrap {
+        &:first-child {
+            margin-top: 0 !important;
+        }
+    }
     margin-bottom: 0.5rem;
 
     .name {

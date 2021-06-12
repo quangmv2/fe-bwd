@@ -83,6 +83,15 @@ const routersUser: IRouter[] = [
         noHeader: false,
         noBottomNav: false
     },
+    {
+        exact: true,
+        path: '/schedule',
+        component: 'user/schedule',
+        title: 'schedule',
+        sidebar: false,
+        noHeader: false,
+        noBottomNav: false
+    },
 ]
 
 

@@ -189,7 +189,7 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
             <p className={`${styles.title} text-capitalize`}>Our Therapists</p>
             <div className='d-flex align-items-center justify-content-between px-3'>
                 <Dropdown overlay={menu} trigger={['click']}>
-                    <p className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                    <p className={`${styles.sort} ant-dropdown-link m-0 `} onClick={e => e.preventDefault()}>
                         sort <DownOutlined />
                     </p>
                 </Dropdown>

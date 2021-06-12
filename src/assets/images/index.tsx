@@ -12,5 +12,7 @@ import drugs from './drugs.jpeg'
 import psychologistConcept from './psychologist-concept.jpg'
 import doctorWoman from './doctor-woman.png'
 import firework from './fireworks.svg'
+import profileBG from './profile-bg.jpg'
+import userProfile from './user-profile.png'
 
-export { firework, doctorWoman, mindset, sharing, underline, woman1, woman2, hug, underline2, lights, subscribeBg, womanTogether, drugs, psychologistConcept }
+export { userProfile, profileBG, firework, doctorWoman, mindset, sharing, underline, woman1, woman2, hug, underline2, lights, subscribeBg, womanTogether, drugs, psychologistConcept }

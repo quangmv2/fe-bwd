@@ -1,6 +1,11 @@
 @import '../../../assets/styles/color';
 
 .wrap {
+    .sort {
+        color: $color-text-muted;
+        font-size: 14px;
+        font-weight: 700;
+    }
     background-color: $color-background;
     .type {
         font-size: 12px;

@@ -65,7 +65,7 @@ const PostComment: React.FC<PostCommentProps> = ({
         return _.map(comment, ({ name, avatar, content }) => {
           return (
     
-            <div className={`d-flex mt-3 ${styles.commentWrap}`}>
+            <div className={`d-flex mt-3 px-3 ${styles.commentWrap}`}>
               <div>
                 <Avatar size={40} shape='square'>{avatar}</Avatar>
               </div>
@@ -111,8 +111,11 @@ const PostComment: React.FC<PostCommentProps> = ({
             </div>
           </div>
         </div>
-        <div className={`${styles.renderComment} p-3`}>
+        <div className={`${styles.renderComment} pt-3`}>
           {renderComment()}
+          <div className='position-fixed bottom-0 w-100 bg-white shadow-css-xl '>
+            ssss
+          </div>
         </div>
       </div>
 

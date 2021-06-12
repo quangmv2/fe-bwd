@@ -32,11 +32,9 @@ const UserProfilePage: React.FC<UserProfileProps> = () => {
                                 <ProfileSider />
                             </div>
                             {id == myId ? <AddPost /> : null}
-                            <div className='pt-2'> <Post />
-                            </div>
+                            
                             <Post />
-                            <Post />
-                            <Post />
+                            
 
                         </Content>
                     </Sider>
