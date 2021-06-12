@@ -6,8 +6,8 @@ import { ButtonComponent, OutlineButton } from '@components'
 
 
 interface bookSuccessProps {
-   date: any,
-   time: any
+   date?: any,
+   time?: any
 }
 
 const BookSuccess: React.FC<bookSuccessProps> = memo(({

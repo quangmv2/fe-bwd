@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Avatar, Layout, Dropdown, Carousel } from 'antd';
-import { LeftCircleFilled, LikeOutlined, MessageOutlined, RightCircleFilled } from '@ant-design/icons';
+import { LeftCircleFilled, RightCircleFilled } from '@ant-design/icons';
 import './styles.scss'
 import styles from './styles.module.scss'
 import _ from 'lodash'

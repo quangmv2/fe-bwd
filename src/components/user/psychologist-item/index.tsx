@@ -2,17 +2,30 @@ import React, { useState } from 'react';
 import './styles.scss'
 import styles from "./styles.module.scss"
 import { woman1 } from '@assets'
-import { Dropdown, Row, Menu, Col, Rate, DatePicker } from 'antd'
+import { Dropdown, Row, Menu, Col, Rate, DatePicker, Modal } from 'antd'
 import { DownOutlined, AppstoreTwoTone, MessageTwoTone, PushpinTwoTone } from '@ant-design/icons'
 import _ from 'lodash'
 import { ButtonComponent } from '@components';
 import Avatar from 'antd/lib/avatar/avatar';
+import BookSuccess from '../book-success-modal';
 
 interface PsychologistItemProps {
 
 }
 
 const PsychologistItem: React.FC<PsychologistItemProps> = () => {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const showModal = () => {
+        setIsModalVisible(true);
+      };
+    
+      const handleOk = () => {
+        setIsModalVisible(false);
+      };
+    
+      const handleCancel = () => {
+        setIsModalVisible(false);
+      };
     const doctor = [
         {
             key: 1,
@@ -36,7 +49,7 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
             intro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia corrupti doloribus dolor tenetur, consequatur ratione dolorum quis ea et.',
             offer: ['CBT', 'EMDR', 'ACT', 'More'],
             specialties: ['Eating Disoder', 'Abuse', 'PTSD', 'more'],
-            time: ['12:00', '13:00', '14:00'],
+            time: ['6:00', '2:00', '16:00'],
             type: 'In Person'
         },
         {
@@ -48,7 +61,7 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
             intro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia corrupti doloribus dolor tenetur, consequatur ratione dolorum quis ea et.',
             offer: ['CBT', 'EMDR', 'CBT', 'More'],
             specialties: ['Eating Disoder', 'Abuse', 'PTSD', 'more'],
-            time: ['12:00', '13:00', '14:00'],
+            time: ['8:00', '17:00', '18:00'],
             type: 'In Person'
         },
         {
@@ -60,7 +73,7 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
             intro: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, aspernatur!',
             offer: ['CBT', 'EMDR', 'ACT', 'More'],
             specialties: ['Eating Disoder', 'Abuse', 'PTSD', 'more'],
-            time: ['12:00', '13:00', '14:00'],
+            time: ['15:00', '13:30', '14:50'],
             type: 'Video Call'
         },
         {
@@ -75,9 +88,8 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
             time: ['12:00', '13:00', '14:00'],
             type: 'In Person'
         },
-
     ]
-    const [doctorChoose, setDoctorChoose] = useState<number>(1);
+    const [timePick, setTimePick] = useState('');
     const renderDoctor = () => {
         return _.map(doctor, ({ name, star, key, position, username, intro, offer, specialties, time, type }) => {
             return (
@@ -92,15 +104,15 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
 
                         <Rate value={star} className='mt-3' />
                     </Col>
-                    <Col span={14}   className={styles.content}>
+                    <Col span={14} className={styles.content}>
                         <p className={`m-0 ${styles.name}`}>{name}</p>
                         <p className={`text-capitalize m-0 py-1  ${styles.position}`}>{position}-{username}</p>
-                     
+
                         <div className={` pt-2 ${styles.intro}`}>
-                        <p className='m-0'>{intro}</p> 
-                        </div> 
-                     
-                   
+                            <p className='m-0'>{intro}</p>
+                        </div>
+
+
                         <div className={`pt-3 ${styles.therapiesOffered}`}>
                             <p className='m-0'>
                                 Therapies Offered
@@ -133,18 +145,18 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
                         </div>
                     </Col>
                     <Col span={6} className={`p-3 time-picker-wrap ${styles.timePicker}`}>
-                        <DatePicker format="MMM DD" className='w-100' bordered={false}/>
+                        <DatePicker format="MMM DD" className='w-100' bordered={false} />
                         <p className={`${styles.type}`}>{type} 50 mins</p>
                         <div className=''>
                             {time.map(timeItem => {
                                 return (
-                                    <div>
+                                    <div onClick={() => setTimePick(timeItem)} className={`hover-pointer py-2 my-2 w-100 d-flex align-items-center justify-content-center ${styles.timeWrap} ${timePick == timeItem ? styles.timePick : null}`}>
                                         {timeItem}
                                     </div>
                                 )
                             })}
                         </div>
-                        <ButtonComponent><p className='m-0'>Book</p></ButtonComponent>
+                        <ButtonComponent onPress={showModal} loading={1} className='mt-3'>Book</ButtonComponent>
                     </Col>
                 </Row>
             )
@@ -164,11 +176,20 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
         </Menu>
     );
     return (
+        
         <div className={`psychologist-item-wrap ${styles.wrap}`}>
+           <Modal
+        wrapClassName='success-booking-modal' 
+        visible={isModalVisible} 
+        onOk={handleOk} 
+        onCancel={handleCancel}
+        width={1000}>
+        <BookSuccess  />
+      </Modal>
             <p className={`${styles.title} text-capitalize`}>Our Therapists</p>
             <div className='d-flex align-items-center justify-content-between px-3'>
                 <Dropdown overlay={menu} trigger={['click']}>
-                    <p className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                    <p className={`${styles.sort} ant-dropdown-link m-0 `} onClick={e => e.preventDefault()}>
                         sort <DownOutlined />
                     </p>
                 </Dropdown>
@@ -177,7 +198,7 @@ const PsychologistItem: React.FC<PsychologistItemProps> = () => {
                     <button className={`btn py-2  ${styles.guideMatchingButton}`}>Guide Matching</button>
                 </div>
             </div>
-            <div className=''>
+            <div className='px-2 '>
                 {renderDoctor()}
             </div></div>
     );

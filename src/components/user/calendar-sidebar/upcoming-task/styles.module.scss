@@ -1,0 +1,68 @@
+@import '../../../../assets/styles/color';
+.title {
+    color: $color-text-muted;
+    font-weight: 700;
+    font-size: 14px;
+}
+.borderInPerson {
+    border-left: 4px solid $blue-light-color;
+}
+.borderVideo {
+    border-left: 4px solid $color-info;
+}
+.borderChat {
+    border-left: 4px solid $color-warning;
+}
+.name {
+  
+    h5 {
+        color: $text-bold-color;
+        font-weight: 700;
+        padding-left: 1rem;
+    }
+   
+}
+.icon {
+   .message {
+   background-color: #fff7e1;
+   border-radius: 5px;
+   .messageIcon {
+    font-size: 20px;
+    color: $color-warning
+}
+}
+    .video {
+        background-color: #ecfcfb;
+        border-radius: 5px;
+        .videoIcon {
+            font-size: 20px;
+        color: $color-info 
+        }
+    }
+    .inPerson {
+        background-color: $background-blue-color;
+        border-radius: 5px;
+        .inPersonIcon {
+            font-size: 20px;
+            color: $blue-light-color
+        }
+    }
+    padding-right: calc(1rem + 4px );
+}
+.time {
+    padding-left: calc(1rem + 4px );
+    color: $color-text-muted;
+    font-size: 12px;
+    font-weight: 700;  
+}
+.viewDetail {
+    padding-left: calc(1rem + 4px );
+    p {
+        color: $text-bold-color;
+        font-weight: 600;
+        font-size: 14px;
+        &:last-child {
+            padding-left: 1rem;
+        }
+    }
+}

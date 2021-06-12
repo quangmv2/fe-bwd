@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from "./styles.module.scss";
-import logo from '@assets/icons/hopez-logo.png'
+import logo from '@assets/icons/logo.png'
 import { Input, Drawer } from 'antd'
 import { MenuUnfoldOutlined, SearchOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import Notification from './notification'
@@ -36,10 +36,10 @@ const HeaderComponent: React.FC<headerProps> = ({
             >
                 <SiderComponent />
             </Drawer>
-            <div className={` ${styles.logoContainer} d-flex align-items-center'`} style={{ height: '70px' }}>
-                <Link to='/'><img className=' h-100' src={logo} /></Link>
+      
+                <img style={{ width: '120px', height: '120px'}} className='mt-3 mx-5' src={logo} />
                 {/* <p className='m-0'>hearMe</p> */}
-            </div>
+      
             <div className={` ${styles.headerLeftWrap} d-flex align-items-baseline justify-content-between `}>
                 <div className='d-none d-lg-block d-xl-block d-xxl-block'>
                     <Input

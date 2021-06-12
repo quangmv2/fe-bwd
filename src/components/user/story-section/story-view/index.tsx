@@ -3,6 +3,7 @@ import { Divider, Layout, Menu } from 'antd';
 import { LeftCircleFilled, LeftOutlined, RightCircleFilled, RightOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import Stories from 'react-insta-stories';
 import './styles.scss'
+import { woman1, mindset, lights } from '@assets'
 import styles from './styles.module.scss'
 import _ from 'lodash'
 import Avatar from 'antd/lib/avatar/avatar';
@@ -112,7 +113,20 @@ const StoryView = props => {
       username: 'quang312'
     },
   ]
-
+  const stories = [
+    {
+      url: woman1,
+     
+    },
+    {
+      url: mindset,
+     
+    },
+    {
+      url: lights,
+     
+    },
+  ];
   const renderListStory = () => {
     return _.map(listStory, ({ name, avatar, username }) => {
       return (
@@ -152,11 +166,11 @@ const StoryView = props => {
           <div className={` mx-3 ${styles.storiesWrap}`}>
             <Stories
               isPaused={true}
-              stories={props.stories}
+              stories={stories}
               defaultInterval={1500}
               width={378}
               height={672}
-              storyStyles={{ borderRadius: '12px' }}
+              storyStyles={{ borderRadius: '12px', width: '378px', height: '672px' }}
             />
           </div>
           <RightCircleFilled className='hover-pointer'/>

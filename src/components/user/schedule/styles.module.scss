@@ -1,0 +1,169 @@
+@import '../../../assets/styles/color';
+
+.wrap {
+    height: calc(100vh - 110px);
+.monthHeader {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+    .weekHeader {
+        p {
+            color: $text-bold-color;
+            font-size: 22px;
+            font-weight: 550;
+
+        }
+
+        span {
+            color: $color-text-muted;
+            letter-spacing: 1px;
+            // padding-left: .5rem; 
+            font-size: 13px;
+        }
+    }
+
+    .patientName {
+        color: $text-bold-color;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .eventWrap {
+        .time {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .title {
+            font-weight: 700;
+        }
+
+
+    }
+
+    .eventChat {
+        background: $background-warning;
+        border-left: 4px solid $color-warning;
+        color: $color-warning;
+    }
+
+    .eventVideoCall {
+        background: $background-info;
+        border-left: 4px solid $color-info;
+        color: $color-info;
+    }
+
+    .eventInperson {
+        background: $background-blue-color;
+        border-left: 4px solid $blue-light-color;
+        color: $blue-light-color
+    }
+
+    .note {
+        color: $color-text-muted;
+        padding-top: 2px;
+        font-weight: 600;
+        font-size: 13px;
+    }
+}
+
+.toolbarWrap {
+    .todayWrap {
+        margin-left: .5rem !important;
+           margin-right: .5rem !important;
+        height: 40px;
+        border-radius: 7px;
+        div {
+            &:hover {
+                border-radius: 7px;
+                background: $color-background;
+            }
+        }
+    }
+    .iconWrap {
+        height: 40px;
+        border-radius: 7px;
+        div {
+            &:hover {
+                border-radius: 7px;
+                background: $color-background;
+            }
+        }
+    }
+    .icon {
+      color: $text-bold-color;
+      font-size: 14px;
+        
+    }
+    .navigationWrap {
+        p {
+            text-align: center;
+            color: $text-bold-color;
+            font-size: 14px;
+            font-weight: 600;
+            width: 80px;
+           
+            
+        }
+    }
+    .viewWrap {
+       height: 40px;
+    
+        .onView {
+            background: $color-background;
+            border-radius: 7px;
+        }
+        border-radius: 7px;
+        p {
+            color: $text-bold-color;
+            font-size: 14px;
+            font-weight: 600;
+            width: 80px;
+        }
+        .test {
+            p { 
+                border-left: 2px solid $color-background;
+            }
+           
+        }
+       
+        // p {
+            
+        //     border-left: 1px solid red;
+        // }
+    }
+
+    .label {
+        color: $color-text-muted;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    h3 {
+        color: $text-bold-color;
+        font-weight: 700;
+    }
+
+    .view {
+        cursor: pointer;
+        width: 100px;
+        color: $text-bold-color;
+        font-weight: 600;
+        background-color: $color-background;
+    }
+
+    .dayView {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+
+    .weekView {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+    .active {
+        background-color: white;
+    }
+
+}

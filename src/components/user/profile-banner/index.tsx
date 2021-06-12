@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react'
-import { woman1 } from '@assets'
+import { profileBG } from '@assets'
 import styles from './styles.module.scss'
 import { ProfileInfo } from './profile-info';
 import { Avatar } from 'antd'
@@ -23,7 +23,7 @@ const ProfileBanner: React.FC<ProfileBannerProps> = memo(() => {
     };
     return (
         <>
-            <section className={styles.wrap} style={{ backgroundImage: `url(${woman1})` }}>
+            <section className={styles.wrap} style={{ backgroundImage: `url(${profileBG})` }}>
                 <div className={styles.container}>
                     <ProfileInfo />
                 </div>

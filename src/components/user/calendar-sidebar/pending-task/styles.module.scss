@@ -1,0 +1,39 @@
+@import '../../../../assets/styles/color';
+.nameWrap {
+    border-left: 4px solid $color-warning;
+    padding-left: 1rem;
+    p{
+        color: $color-text-muted;
+        font-size: 12px;
+        font-weight: 700; 
+    }
+    h5 {
+        color: $text-bold-color;
+       font-weight: 700;
+    }
+}
+.time {
+    padding-left: calc(1rem + 4px );
+    color: $color-text-muted;
+    font-size: 12px;
+    font-weight: 700;  
+}
+.icon {
+    color: $text-bold-color
+}
+.tag {
+    padding-right: calc(1rem + 4px );
+}
+.buttonWrap {
+    padding-left: calc(1rem + 4px );
+    padding-right: calc(1rem + 4px );
+    .button {
+        border: 1px solid $text-bold-color;
+        border-radius: 5px;
+        font-weight: 600;  
+        width: max-content;
+        p {
+            color: $text-bold-color
+        }
+    }
+}

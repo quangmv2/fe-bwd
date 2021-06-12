@@ -1,0 +1,56 @@
+@import '../../../assets/styles/color';
+.tag-wrap {
+    .anticon {
+        font-size: 14px;
+        color: #216fed;
+    }
+
+}
+.menu-how {
+    .anticon {
+        font-size: 22px;
+    }
+}
+.search-wrap {
+    .anticon {
+        font-size: 30px;
+    }
+    .ant-input-affix-wrapper {
+        padding: 0 !important;
+        border-radius: 12px;
+        height: 40px;
+        
+        .anticon {
+            color: $color-text-muted;
+            font-size: 21px;
+        }
+        .ant-input {
+            padding-left: .5px;
+            font-weight: 600;
+            color: $text-bold-color;
+        }
+    }
+
+}
+.date-picker-wrap {
+    .ant-picker {
+        padding: 0 !important
+    }
+    .ant-picker-suffix {
+        .anticon {
+            font-size: 20px;
+            color: #216fed
+        }
+    }
+    .ant-picker-input  {
+        input {
+            margin-left: 10px;
+            color: $text-bold-color !important;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        display: flex ;
+        flex-direction: row-reverse;
+    }
+    
+}

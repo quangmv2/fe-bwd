@@ -14,24 +14,36 @@ const UserProfilePage: React.FC<UserProfileProps> = () => {
     return (
         <>
             <ProfileBanner />
-            <Layout >
-                <Sider  className={`p-3 ${styles.leftSider}`}  width={350}>
+            <Layout className={styles.wrap}>
+                <Sider className={`p-3 ${styles.leftSider}`} width={350}>
                     <ProfileSider />
                 </Sider>
                 <Layout className={styles.layoutContent}>
                     <Sider
-                    width={350}
+                       width={'calc(100% - 350px)'}
                         style={{
-                            position: 'absolute',
-                            right: 0,
+
 
                         }}
-                      className={` px-2 ${styles.rightSider}`}
+                        className={` ${styles.rightSider}`}
                     >
-                        <ProfileRightSider isMyProfile={id == myId ? true : false}/>
-                    </Sider>
-                    <Layout className={` ${styles.content} ${styles.layoutContent}`} style={{ marginRight: '350px', maxWidth: '100%' }} >
                         <Content className='px-3 pt-2'>
+                            <div className={styles.profileSider}>
+                                <ProfileSider />
+                            </div>
+                            {id == myId ? <AddPost /> : null}
+                            
+                            <Post />
+                            
+
+                        </Content>
+                    </Sider>
+                    <Layout 
+                 
+                    className={` px-2 ${styles.content} ${styles.layoutContent}`} style={{ width: '350px'}} >
+
+                        <ProfileRightSider isMyProfile={id == myId ? true : false} />
+                        {/* <Content className='px-3 pt-2'>
                             <div className={styles.profileSider}>
                         <ProfileSider />
                         </div>
@@ -42,7 +54,7 @@ const UserProfilePage: React.FC<UserProfileProps> = () => {
                             <Post />
                             <Post />
 
-                        </Content>
+                        </Content> */}
 
                     </Layout>
                 </Layout>
